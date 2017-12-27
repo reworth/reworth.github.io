@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://reworth.site/"/>
   <updated>2017-12-27T07:36:39.053Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://reworth.site/</id>
   
   <author>
     <name>Reworth Yan</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>test</title>
-    <link href="http://yoursite.com/2017/12/27/test/"/>
-    <id>http://yoursite.com/2017/12/27/test/</id>
+    <link href="http://reworth.site/2017/12/27/test/"/>
+    <id>http://reworth.site/2017/12/27/test/</id>
     <published>2017-12-27T07:17:58.000Z</published>
     <updated>2017-12-27T07:36:39.053Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2017/12/27/hello-world/"/>
-    <id>http://yoursite.com/2017/12/27/hello-world/</id>
+    <link href="http://reworth.site/2017/12/27/hello-world/"/>
+    <id>http://reworth.site/2017/12/27/hello-world/</id>
     <published>2017-12-27T03:24:57.081Z</published>
     <updated>2017-12-27T03:24:57.081Z</updated>
     
