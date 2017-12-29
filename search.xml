@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[awk]]></title>
+    <url>%2F2017%2F12%2F29%2Fawk%2F</url>
+    <content type="text"><![CDATA[awkawk是一种处理文本的语言，是一个强大的文本分析工具，awk是以列为划分记数的，$0表示所有列，$1表示第一列，$2表示第二列。 awk常用参数 -F指定输入文件分隔符，如-F： -v 赋值一个用户定义变量，如-va=1 -f 从脚本文件中读取awk命令 多个分隔符awk -F &#39;[-|]&#39; &#39;{print $3}&#39; data上面这个例子是以-和|为分隔符进行分割。 设置变量设置awk自定义变量，使用参数-vcat data.txt | awk -v a=9 &#39;{print $1,$1+a}&#39;如上，设置了变量a的值，在输出的时候添加一个$1+a的值。如果在脚本中使用的时候，前面已经定义了一个$2的变量，并且你就是像要使用这个变量的话，就要使用以下的形式：awk &#39;{print $$2}&#39; 逻辑判断cat data.txt | awk &#39;$1==&quot;reworth&quot; {print}输出第一列为reworth的所有行。cat data.txt | awk &#39;$1!=&quot;reworth&quot; {print}&#39;输出第一列不是reworth的所有行。 正则匹配cat data.txt | awk &#39;$2 ~ /reworth.*/ {print}&#39;匹配第二列中以reworth开头的所有行。对某列进行匹配时需要在列之后加个～表示进行匹配。cat data.txt | awk &#39;/reworth.*/ {print}&#39;匹配以reworth开头的所有行。匹配取反 !~cat data.txt | awk &#39;$2 !~ /reworth/ {print}&#39;匹配第二列不是reworth的所有行。 内置变量 FILENAME : 当前输入文件名称 NF : 当前输入行的字段编号 OFS : 输出字段分隔符 NR : 当前输入行编号(是指输入行 1，2，3……等) FS : 输入字段分隔符 ORS : 输出记录分隔符 RS : 输入记录分隔符 内置函数substr字符串截取cat data.txt | awk &#39;{print substr($1,1,4)}&#39;截取第一列中的第一个到第四个字符。split 切片cat data.txt |awk &#39;{split($1,a,&quot;,&quot;);print a[1],a[2],a[3]}&#39;以逗号分隔第一列，并输出分隔后的数据。gsub 替换cat data.txt | awk &#39;&#39;{gsub(&quot;abc&quot;,&quot;asd&quot;,$2);print}将第二列中的abc替换成asd 统计 grep ‘tower_activity_op’ /data/s*/log/test.log | awk -F’[=,]’ ‘{a[$2] -= $12; b[$2] -= $14; item_count[$2]++;} END{for(i in a) {serverid=i; cmd=”/usr/bin/mysql -u root -h \”192.168.0.1\” -p1234 -D stat -e \”replace into test(date,uid,cash,coins,number,code,serverid) values(\047’$Date’\047,”i”,”a[i]”,”b[i]”,”item_count[i]”,\047测试\047,”serverid”)\””; system(cmd);}}’]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>awk</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[volume-container]]></title>
     <url>%2F2017%2F12%2F28%2Fvolume-container%2F</url>
     <content type="text"><![CDATA[volume container是专门为其他容器提供volume的容器。它提供的卷可以是bind mount,也可以是docker managed volume.下面我创建一个volume container:1234docker create --name vc_data \ -v ~/htdocs:/usr/local/apache2/htdocs \ -v ~/other/useful/tools \ busybox 我们将容器命名为vc_data.注意这里执行的是docker create命令，这是因为volume container的作用是只提供数据，它本身不需要处于运行状态。容器中mount了两个volume: bind mount,存放web server的静态文件。 docker managed volume,存放一些实用的工具通过docker inspect可以查看这两个volume]]></content>
