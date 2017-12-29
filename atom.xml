@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://reworth.site/"/>
-  <updated>2017-12-29T02:57:29.521Z</updated>
+  <updated>2017-12-29T07:03:58.446Z</updated>
   <id>http://reworth.site/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://reworth.site/2017/12/28/volume-container/"/>
     <id>http://reworth.site/2017/12/28/volume-container/</id>
     <published>2017-12-28T11:00:24.000Z</published>
-    <updated>2017-12-29T02:57:29.521Z</updated>
+    <updated>2017-12-29T07:03:58.446Z</updated>
     
     <content type="html"><![CDATA[<p>volume container是专门为其他容器提供volume的容器。它提供的卷可以是bind mount,<br>也可以是docker managed volume.下面我创建一个volume container:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker create --name vc_data \</span><br><span class="line">-v ~/htdocs:/usr/local/apache2/htdocs \</span><br><span class="line">-v ~/other/useful/tools \</span><br><span class="line">busybox</span><br></pre></td></tr></table></figure></p><p>我们将容器命名为vc_data.注意这里执行的是docker create命令，这是因为volume container<br>的作用是只提供数据，它本身不需要处于运行状态。容器中mount了两个volume:</p><ul><li>bind mount,存放web server的静态文件。</li><li>docker managed volume,存放一些实用的工具<br>通过docker inspect可以查看这两个volume</li></ul>]]></content>
     
