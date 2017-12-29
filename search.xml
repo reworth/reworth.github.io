@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[volume-container]]></title>
+    <url>%2F2017%2F12%2F28%2Fvolume-container%2F</url>
+    <content type="text"><![CDATA[volume container是专门为其他容器提供volume的容器。它提供的卷可以是bind mount,也可以是docker managed volume.下面我创建一个volume container:1234docker create --name vc_data \ -v ~/htdocs:/usr/local/apache2/htdocs \ -v ~/other/useful/tools \ busybox 我们将容器命名为vc_data.注意这里执行的是docker create命令，这是因为volume container的作用是只提供数据，它本身不需要处于运行状态。容器中mount了两个volume: bind mount,存放web server的静态文件。 docker managed volume,存放一些实用的工具通过docker inspect可以查看这两个volume]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>volume</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[test]]></title>
+    <url>%2F2017%2F12%2F27%2Ftest%2F</url>
+    <content type="text"><![CDATA[Quick TestCreate a new post1$ testing]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2017%2F12%2F27%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
