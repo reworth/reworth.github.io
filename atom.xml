@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://reworth.site/"/>
-  <updated>2018-01-03T11:45:22.865Z</updated>
+  <updated>2018-01-03T12:00:30.402Z</updated>
   <id>http://reworth.site/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo cmd</title>
+    <link href="http://reworth.site/2018/01/03/hexo-cmd/"/>
+    <id>http://reworth.site/2018/01/03/hexo-cmd/</id>
+    <published>2018-01-03T11:56:46.000Z</published>
+    <updated>2018-01-03T12:00:30.402Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Hexo-Cmd"><a href="#Hexo-Cmd" class="headerlink" title="Hexo Cmd"></a>Hexo Cmd</h1><blockquote><p>hexo help  # 查看帮助<br>hexo version  #查看Hexo的版本<br>hexo algolia  # 更新search庫<br>hexo new “postName” #新建文章<br>hexo new post “title”  # 生成新文章：\source_posts\title.md，可省略post<br>hexo new page “pageName” #新建页面<br>hexo clean #清除部署緩存<br>hexo n == hexo new #新建文章<br>hexo g == hexo generate #生成静态页面至public目录<br>hexo s == hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo d == hexo deploy #将.deploy目录部署到GitHub<br>hexo d -g #生成加部署<br>hexo s -g #生成加预览</p></blockquote><h1 id="Clean-amp-Update"><a href="#Clean-amp-Update" class="headerlink" title="Clean&amp;Update"></a>Clean&amp;Update</h1><pre><code>hexo clhexo d -g</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Hexo-Cmd&quot;&gt;&lt;a href=&quot;#Hexo-Cmd&quot; class=&quot;headerlink&quot; title=&quot;Hexo Cmd&quot;&gt;&lt;/a&gt;Hexo Cmd&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;hexo help  # 查看帮助&lt;br&gt;hexo version
+      
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://reworth.site/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://reworth.site/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>flask definitions</title>
