@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[flask definitions]]></title>
+    <url>%2F2018%2F01%2F03%2Fflask-definitions%2F</url>
+    <content type="text"><![CDATA[Flask’s some definitions WSGI: Web服务器网关接口，是一种Web服务使用的协议 路由: 处理URL和函数之间关系的程序称为”路由” 视图函数: 类似于index()这样的，被app.route装饰器注册为路由的函数，或者通过app.add_url_rule()添加路由映射关系的函数，被称为视图函数。 app.route(): 路由装饰器，可以带参数，参数可以指定数据类型：int/float/path。path类似于字符串，但不将反斜线/当做分隔符。 Flask上下文全局变量 current_app: 程序上下文，当前激活程序的程序实例，所有线程公用一个该实例。 g: 程序上下文，处理请求时用作临时存储的对象，每次请求都会重设这个变量 request: 请求上下文，请求对象，封装了客户端发出的 HTTP 请求中的内容，不同线程之间互不干扰 session: 请求上下问，用户会话，用于存储请求之间需要“记住”的值的词典。 Flask支持的4种钩子函数 before_first_request: 注册一个函数，在处理第一个请求之前运行。 before_request: 注册一个函数，在每次请求之前运行。 after_request: 注册一个函数，如果没有未处理的异常抛出，在每次请求之后运行。 teardown_request:注册一个函数，即使有未处理的异常抛出，也在每次请求之后运行。 Jinja2模板使用渲染模板: render_template(“user.html”, name=name)控制结构：1234567891011&#123;% if user %&#125; Hello, &#123;&#123; user &#125;&#125;! &#123;% else %&#125; Hello, Stranger! &#123;% endif %&#125; &lt;ul&gt; &#123;% for comment in comments %&#125; &lt;li&gt;&#123;&#123; comment &#125;&#125;&lt;/li&gt; &#123;% endfor %&#125; &lt;/ul&gt; 宏-类似于函数:123456789 &#123;% macro render_comment(comment) %&#125; &lt;li&gt;&#123;&#123; comment &#125;&#125;&lt;/li&gt; &#123;% endmacro %&#125; &lt;ul&gt; &#123;% for comment in comments %&#125; &#123;&#123; render_comment(comment) &#125;&#125; &#123;% endfor %&#125; &lt;/ul&gt; Jinja2变量过滤器 # safe: 渲染值时不转义# capitalize: 把值的首字母转换成大写，其他字母转换成小写# lower: 把值转换成小写形式# upper: 把值转换成大写形式# title: 把值中每个单词的首字母都转换成大写# trim: 把值的首尾空格去掉# striptags: 渲染之前把值中所有的 HTML 标签都删掉 WTForms支持的字段注意添加app.config[‘SECRET_KEY’] = ‘hard to guess string’ StringField 文本字段 TextAreaField 多行文本字段 PasswordField 密码文本字段 HiddenField 隐藏文本字段 DateField 值为datatime.data格式的文本字段 DateTimeField 值为datatime.datatime格式的文本字段 DecimalField 值为decimal.Decimal格式的文本字段 IntegerField 值为整数的文本字段 FloatField 值为浮点数的文本字段 BooleanField 值为True或False的复选框 RadioField 一组单选框 SelectField 值唯一的下拉列表 SelectMultipleField 可选多个值得下拉列表 FileField 文件上传字段 SubmitField 表单提交按钮 FormField 把表单作为字段嵌入另一个表单 FieldList 一组指定类型的字段 常见返回码200 OK - [GET]：服务器成功返回用户请求的数据201 CREATED - [POST/PUT/PATCH]：用户新建或修改数据成功202 Accepted - []：表示一个请求已经进入后台排队（异步任务）204 NO CONTENT - [DELETE]：用户删除数据成功400 INVALID REQUEST - [POST/PUT/PATCH]：用户发出的请求有错误，服务器没有进行新建或修改数据的操作401 Unauthorized - []：表示用户没有权限（令牌、用户名、密码错误）403 Forbidden - [] 表示用户得到授权（与401错误相对），但是访问是被禁止的404 NOT FOUND - []：用户发出的请求针对的是不存在的记录，服务器没有进行操作406 Not Acceptable - [GET]：用户请求的格式不可得410 Gone -[GET]：用户请求的资源被永久删除，且不会再得到的422 Unprocesable entity - [POST/PUT/PATCH] 当创建一个对象时，发生一个验证错误500 INTERNAL SERVER ERROR - [*]：服务器发生错误，用户将无法判断发出的请求是否成功]]></content>
+      <categories>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sed-grep]]></title>
+    <url>%2F2018%2F01%2F01%2Fsed-grep%2F</url>
+    <content type="text"><![CDATA[sedsed对文本的处理非常的强大，并且sed非常小，操作跟awk类似。sed是按顺序逐行进行读取文件。然后，它执行的是该行指定的所有操作，并在完成请求的修改之后的内容显示出来，也可以将其存放到文件之中。 sed [-nefri] [动作] -n ：使用安静(silent)模式。在一般 sed 的用法中，所有来自 STDIN 的数据一般都会被列出到终端上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行(或者动作)才会被列出来。 -e ：直接在命令列模式上进行 sed 的动作编辑； -f ：直接将 sed 的动作写在一个文件内， -f filename 则可以运行 filename 内的 sed 动作； -r ：sed 的动作支持的是延伸型正规表示法的语法。(默认是基础正规表示法语法) -i ：直接修改读取的文件内容，而不是输出到终端。 –follow-symlinks 直接修改文件时跟随软链接 动作说明 ： [n1[,n2]]fuctionn1, n2 ：不见得会存在，一般代表『选择进行动作的行数』，举例来说，如果我的动作是需要在 10 到 20 行之间进行的，则『 10,20[动作行为] 』 funtion： a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～ c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！ d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚； i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)； p ：列印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～ s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/g 就是啦！ grep命令格式： grep [option] pattern file 参数 -i：忽略大小写 -c：打印匹配的行数 -v：查找不包含匹配项的行 -n：打印包含匹配项的行和行标 正则表达式 ^ #锚定行的开始 如：’^grep’匹配所有以grep开头的行。$ #锚定行的结束 如：’grep$’匹配所有以grep结尾的行。. #匹配一个非换行符的字符 如：’gr.p’匹配gr后接一个任意字符，然后是p。* #匹配零个或多个先前字符 如：’grep’匹配所有一个或多个空格后紧跟grep的行。. #一起用代表任意字符。[] #匹配一个指定范围内的字符，如’[Gg]rep’匹配Grep和grep。[^] #匹配一个不在指定范围内的字符，如：’[^A-FH-Z]rep’匹配不包含A-R和T-Z的一个字母开头，紧跟rep的行。(..) #标记匹配字符，如’(love)‘，love被标记为1。\&lt; #锚定单词的开始，如:’\‘匹配包含以grep结尾的单词的行。x{m} #重复字符x，m次，如：’0{5}‘匹配包含5个o的行。x{m,} #重复字符x,至少m次，如：’o{5,}‘匹配至少有5个o的行。x{m,n} #重复字符x，至少m次，不多于n次，如：’o{5,10}‘匹配5–10个o的行。\w #匹配文字和数字字符，也就是[A-Za-z0-9]，如：’G\w*p’匹配以G后跟零个或多个文字或数字字符，然后是p。\W #\w的反置形式，匹配一个或多个非单词字符，如点号句号等。]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>sed</tag>
+        <tag>grep</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[awk]]></title>
     <url>%2F2017%2F12%2F29%2Fawk%2F</url>
     <content type="text"><![CDATA[awkawk是一种处理文本的语言，是一个强大的文本分析工具，awk是以列为划分记数的，$0表示所有列，$1表示第一列，$2表示第二列。 awk常用参数 -F指定输入文件分隔符，如-F： -v 赋值一个用户定义变量，如-va=1 -f 从脚本文件中读取awk命令 多个分隔符awk -F &#39;[-|]&#39; &#39;{print $3}&#39; data上面这个例子是以-和|为分隔符进行分割。 设置变量设置awk自定义变量，使用参数-vcat data.txt | awk -v a=9 &#39;{print $1,$1+a}&#39;如上，设置了变量a的值，在输出的时候添加一个$1+a的值。如果在脚本中使用的时候，前面已经定义了一个$2的变量，并且你就是像要使用这个变量的话，就要使用以下的形式：awk &#39;{print $$2}&#39; 逻辑判断cat data.txt | awk &#39;$1==&quot;reworth&quot; {print}输出第一列为reworth的所有行。cat data.txt | awk &#39;$1!=&quot;reworth&quot; {print}&#39;输出第一列不是reworth的所有行。 正则匹配cat data.txt | awk &#39;$2 ~ /reworth.*/ {print}&#39;匹配第二列中以reworth开头的所有行。对某列进行匹配时需要在列之后加个～表示进行匹配。cat data.txt | awk &#39;/reworth.*/ {print}&#39;匹配以reworth开头的所有行。匹配取反 !~cat data.txt | awk &#39;$2 !~ /reworth/ {print}&#39;匹配第二列不是reworth的所有行。 内置变量 FILENAME : 当前输入文件名称 NF : 当前输入行的字段编号 OFS : 输出字段分隔符 NR : 当前输入行编号(是指输入行 1，2，3……等) FS : 输入字段分隔符 ORS : 输出记录分隔符 RS : 输入记录分隔符 内置函数substr字符串截取cat data.txt | awk &#39;{print substr($1,1,4)}&#39;截取第一列中的第一个到第四个字符。split 切片cat data.txt |awk &#39;{split($1,a,&quot;,&quot;);print a[1],a[2],a[3]}&#39;以逗号分隔第一列，并输出分隔后的数据。gsub 替换cat data.txt | awk &#39;&#39;{gsub(&quot;abc&quot;,&quot;asd&quot;,$2);print}将第二列中的abc替换成asd 统计 grep ‘tower_activity_op’ /data/s*/log/test.log | awk -F’[=,]’ ‘{a[$2] -= $12; b[$2] -= $14; item_count[$2]++;} END{for(i in a) {serverid=i; cmd=”/usr/bin/mysql -u root -h \”192.168.0.1\” -p1234 -D stat -e \”replace into test(date,uid,cash,coins,number,code,serverid) values(\047’$Date’\047,”i”,”a[i]”,”b[i]”,”item_count[i]”,\047测试\047,”serverid”)\””; system(cmd);}}’]]></content>
@@ -21,15 +45,5 @@
       <tags>
         <tag>volume</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[test]]></title>
-    <url>%2F2017%2F12%2F27%2Ftest%2F</url>
-    <content type="text"><![CDATA[Quick TestCreate a new post1$ testing]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2017%2F12%2F27%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>

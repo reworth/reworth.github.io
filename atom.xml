@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://reworth.site/"/>
-  <updated>2017-12-29T10:43:12.447Z</updated>
+  <updated>2018-01-03T11:45:22.865Z</updated>
   <id>http://reworth.site/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>flask definitions</title>
+    <link href="http://reworth.site/2018/01/03/flask-definitions/"/>
+    <id>http://reworth.site/2018/01/03/flask-definitions/</id>
+    <published>2018-01-03T11:16:42.000Z</published>
+    <updated>2018-01-03T11:45:22.865Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Flask’s-some-definitions"><a href="#Flask’s-some-definitions" class="headerlink" title="Flask’s some definitions"></a>Flask’s some definitions</h1><ul><li>WSGI: Web服务器网关接口，是一种Web服务使用的协议</li><li>路由: 处理URL和函数之间关系的程序称为”路由”</li><li>视图函数: 类似于index()这样的，被app.route装饰器注册为路由的函数，或者通过app.add_url_rule()添加路由映射关系的函数，被称为视图函数。  </li><li>app.route(): 路由装饰器，可以带参数，参数可以指定数据类型：int/float/path。path类似于字符串，但不将反斜线/当做分隔符。 </li></ul><h1 id="Flask上下文全局变量"><a href="#Flask上下文全局变量" class="headerlink" title="Flask上下文全局变量"></a>Flask上下文全局变量</h1><ul><li>current_app: 程序上下文，当前激活程序的程序实例，所有线程公用一个该实例。 </li><li>g: 程序上下文，处理请求时用作临时存储的对象，每次请求都会重设这个变量</li><li>request: 请求上下文，请求对象，封装了客户端发出的 HTTP 请求中的内容，不同线程之间互不干扰</li><li>session: 请求上下问，用户会话，用于存储请求之间需要“记住”的值的词典。 </li></ul><h1 id="Flask支持的4种钩子函数"><a href="#Flask支持的4种钩子函数" class="headerlink" title="Flask支持的4种钩子函数"></a>Flask支持的4种钩子函数</h1><ul><li>before_first_request: 注册一个函数，在处理第一个请求之前运行。 </li><li>before_request: 注册一个函数，在每次请求之前运行。</li><li>after_request: 注册一个函数，如果没有未处理的异常抛出，在每次请求之后运行。</li><li>teardown_request:注册一个函数，即使有未处理的异常抛出，也在每次请求之后运行。</li></ul><h1 id="Jinja2模板使用"><a href="#Jinja2模板使用" class="headerlink" title="Jinja2模板使用"></a>Jinja2模板使用</h1><p>渲染模板: render_template(“user.html”, name=name)<br>控制结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if user %&#125; </span><br><span class="line">      Hello, &#123;&#123; user &#125;&#125;! </span><br><span class="line">    &#123;% else %&#125; </span><br><span class="line">      Hello, Stranger! </span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">    &lt;ul&gt; </span><br><span class="line">    &#123;% for comment in comments %&#125; </span><br><span class="line">      &lt;li&gt;&#123;&#123; comment &#125;&#125;&lt;/li&gt;  </span><br><span class="line">       &#123;% endfor %&#125; </span><br><span class="line">    &lt;/ul&gt;</span><br></pre></td></tr></table></figure></p><p>宏-类似于函数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> &#123;% macro render_comment(comment) %&#125; </span><br><span class="line">   &lt;li&gt;&#123;&#123; comment &#125;&#125;&lt;/li&gt; </span><br><span class="line"> &#123;% endmacro %&#125; </span><br><span class="line"> </span><br><span class="line"> &lt;ul&gt; </span><br><span class="line"> &#123;% for comment in comments %&#125; </span><br><span class="line">   &#123;&#123; render_comment(comment) &#125;&#125; </span><br><span class="line"> &#123;% endfor %&#125; </span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure></p><h1 id="Jinja2变量过滤器"><a href="#Jinja2变量过滤器" class="headerlink" title="Jinja2变量过滤器"></a>Jinja2变量过滤器</h1><blockquote><p># safe: 渲染值时不转义<br># capitalize: 把值的首字母转换成大写，其他字母转换成小写<br># lower: 把值转换成小写形式<br># upper: 把值转换成大写形式<br># title: 把值中每个单词的首字母都转换成大写<br># trim: 把值的首尾空格去掉<br># striptags: 渲染之前把值中所有的 HTML 标签都删掉 </p></blockquote><h1 id="WTForms支持的字段"><a href="#WTForms支持的字段" class="headerlink" title="WTForms支持的字段"></a>WTForms支持的字段</h1><p><strong>注意添加app.config[‘SECRET_KEY’] = ‘hard to guess string’</strong></p><ul><li>StringField 文本字段 </li><li>TextAreaField 多行文本字段 </li><li>PasswordField 密码文本字段 </li><li>HiddenField 隐藏文本字段 </li><li>DateField 值为datatime.data格式的文本字段 </li><li>DateTimeField 值为datatime.datatime格式的文本字段 </li><li>DecimalField 值为decimal.Decimal格式的文本字段 </li><li>IntegerField 值为整数的文本字段 </li><li>FloatField 值为浮点数的文本字段 </li><li>BooleanField 值为True或False的复选框 </li><li>RadioField 一组单选框 </li><li>SelectField 值唯一的下拉列表 </li><li>SelectMultipleField 可选多个值得下拉列表 </li><li>FileField 文件上传字段 </li><li>SubmitField 表单提交按钮 </li><li>FormField 把表单作为字段嵌入另一个表单 </li><li>FieldList 一组指定类型的字段 </li></ul><h1 id="常见返回码"><a href="#常见返回码" class="headerlink" title="常见返回码"></a>常见返回码</h1><p>200 OK - [GET]：服务器成功返回用户请求的数据<br>201 CREATED - [POST/PUT/PATCH]：用户新建或修改数据成功<br>202 Accepted - [<em>]：表示一个请求已经进入后台排队（异步任务）<br>204 NO CONTENT - [DELETE]：用户删除数据成功<br>400 INVALID REQUEST - [POST/PUT/PATCH]：用户发出的请求有错误，服务器没有进行新建或修改数据的操作<br>401 Unauthorized - [</em>]：表示用户没有权限（令牌、用户名、密码错误）<br>403 Forbidden - [<em>] 表示用户得到授权（与401错误相对），但是访问是被禁止的<br>404 NOT FOUND - [</em>]：用户发出的请求针对的是不存在的记录，服务器没有进行操作<br>406 Not Acceptable - [GET]：用户请求的格式不可得<br>410 Gone -[GET]：用户请求的资源被永久删除，且不会再得到的<br>422 Unprocesable entity - [POST/PUT/PATCH] 当创建一个对象时，发生一个验证错误<br>500 INTERNAL SERVER ERROR - [*]：服务器发生错误，用户将无法判断发出的请求是否成功 </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Flask’s-some-definitions&quot;&gt;&lt;a href=&quot;#Flask’s-some-definitions&quot; class=&quot;headerlink&quot; title=&quot;Flask’s some definitions&quot;&gt;&lt;/a&gt;Flask’s some d
+      
+    
+    </summary>
+    
+      <category term="flask" scheme="http://reworth.site/categories/flask/"/>
+    
+    
+      <category term="flask" scheme="http://reworth.site/tags/flask/"/>
+    
+      <category term="python" scheme="http://reworth.site/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sed-grep</title>
+    <link href="http://reworth.site/2018/01/01/sed-grep/"/>
+    <id>http://reworth.site/2018/01/01/sed-grep/</id>
+    <published>2018-01-01T09:20:47.000Z</published>
+    <updated>2018-01-01T09:34:25.346Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h2><p>sed对文本的处理非常的强大，并且sed非常小，操作跟awk类似。sed是按顺序逐行进行读取文件。然后，它执行的是该行指定的所有操作，并在完成请求的修改之后的内容显示出来，也可以将其存放到文件之中。</p><h2 id="sed-nefri-动作"><a href="#sed-nefri-动作" class="headerlink" title="sed  [-nefri] [动作]"></a>sed  [-nefri] [动作]</h2><ul><li>-n ：使用安静(silent)模式。在一般 sed 的用法中，所有来自 STDIN 的数据一般都会被列出到终端上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行(或者动作)才会被列出来。</li><li>-e ：直接在命令列模式上进行 sed 的动作编辑；</li><li>-f ：直接将 sed 的动作写在一个文件内， -f filename 则可以运行 filename 内的 sed 动作；</li><li>-r ：sed 的动作支持的是延伸型正规表示法的语法。(默认是基础正规表示法语法)</li><li>-i ：直接修改读取的文件内容，而不是输出到终端。</li><li>–follow-symlinks    直接修改文件时跟随软链接</li></ul><p><strong>动作说明</strong> ： [n1[,n2]]fuction<br>n1, n2 ：不见得会存在，一般代表『选择进行动作的行数』，举例来说，如果我的动作是需要在 10 到 20 行之间进行的，则『 10,20[动作行为] 』<br> <strong>funtion</strong>：</p><ul><li>a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～</li><li>c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！</li><li>d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；</li><li>i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；</li><li>p ：列印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～</li><li>s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/g 就是啦！</li></ul><h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><p><strong>命令格式</strong>： grep [option] pattern file</p><h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><ul><li>-i：忽略大小写</li><li>-c：打印匹配的行数</li><li>-v：查找不包含匹配项的行</li><li>-n：打印包含匹配项的行和行标</li></ul><h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><blockquote><p>^  #锚定行的开始 如：’^grep’匹配所有以grep开头的行。<br>$  #锚定行的结束 如：’grep$’匹配所有以grep结尾的行。<br>.  #匹配一个非换行符的字符 如：’gr.p’匹配gr后接一个任意字符，然后是p。<br>*  #匹配零个或多个先前字符 如：’<em>grep’匹配所有一个或多个空格后紧跟grep的行。<br>.</em>   #一起用代表任意字符。<br>[]   #匹配一个指定范围内的字符，如’[Gg]rep’匹配Grep和grep。<br>[^]  #匹配一个不在指定范围内的字符，如：’[^A-FH-Z]rep’匹配不包含A-R和T-Z的一个字母开头，紧跟rep的行。<br>(..)  #标记匹配字符，如’(love)‘，love被标记为1。<br>\&lt;      #锚定单词的开始，如:’\<grep'匹配包含以grep开头的单词的行。 \="">      #锚定单词的结束，如'grep\>‘匹配包含以grep结尾的单词的行。<br>x{m}  #重复字符x，m次，如：’0{5}‘匹配包含5个o的行。<br>x{m,}  #重复字符x,至少m次，如：’o{5,}‘匹配至少有5个o的行。<br>x{m,n}  #重复字符x，至少m次，不多于n次，如：’o{5,10}‘匹配5–10个o的行。<br>\w    #匹配文字和数字字符，也就是[A-Za-z0-9]，如：’G\w*p’匹配以G后跟零个或多个文字或数字字符，然后是p。<br>\W    #\w的反置形式，匹配一个或多个非单词字符，如点号句号等。   </grep'匹配包含以grep开头的单词的行。></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;sed&quot;&gt;&lt;a href=&quot;#sed&quot; class=&quot;headerlink&quot; title=&quot;sed&quot;&gt;&lt;/a&gt;sed&lt;/h2&gt;&lt;p&gt;sed对文本的处理非常的强大，并且sed非常小，操作跟awk类似。sed是按顺序逐行进行读取文件。然后，它执行的是该行指定的所有操作
+      
+    
+    </summary>
+    
+      <category term="linux" scheme="http://reworth.site/categories/linux/"/>
+    
+    
+      <category term="sed" scheme="http://reworth.site/tags/sed/"/>
+    
+      <category term="grep" scheme="http://reworth.site/tags/grep/"/>
+    
+  </entry>
   
   <entry>
     <title>awk</title>
@@ -63,48 +117,6 @@
     
     
       <category term="volume" scheme="http://reworth.site/tags/volume/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>test</title>
-    <link href="http://reworth.site/2017/12/27/test/"/>
-    <id>http://reworth.site/2017/12/27/test/</id>
-    <published>2017-12-27T07:17:58.000Z</published>
-    <updated>2017-12-27T07:36:39.053Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Quick-Test"><a href="#Quick-Test" class="headerlink" title="Quick Test"></a>Quick Test</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ testing</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Quick-Test&quot;&gt;&lt;a href=&quot;#Quick-Test&quot; class=&quot;headerlink&quot; title=&quot;Quick Test&quot;&gt;&lt;/a&gt;Quick Test&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Crea
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://reworth.site/2017/12/27/hello-world/"/>
-    <id>http://reworth.site/2017/12/27/hello-world/</id>
-    <published>2017-12-27T03:24:57.081Z</published>
-    <updated>2017-12-27T03:24:57.081Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
     
   </entry>
   

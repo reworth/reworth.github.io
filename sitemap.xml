@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://reworth.site/2018/01/03/flask-definitions/</loc>
+    
+    <lastmod>2018-01-03T11:45:22.865Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://reworth.site/2018/01/01/sed-grep/</loc>
+    
+    <lastmod>2018-01-01T09:34:25.346Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://reworth.site/2017/12/29/awk/</loc>
     
     <lastmod>2017-12-29T10:43:12.447Z</lastmod>
@@ -26,20 +40,6 @@
     <loc>http://reworth.site/categories/index.html</loc>
     
     <lastmod>2017-12-29T02:51:33.676Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://reworth.site/2017/12/27/test/</loc>
-    
-    <lastmod>2017-12-27T07:36:39.053Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://reworth.site/2017/12/27/hello-world/</loc>
-    
-    <lastmod>2017-12-27T03:24:57.081Z</lastmod>
     
   </url>
   
