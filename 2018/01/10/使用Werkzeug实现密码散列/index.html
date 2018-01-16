@@ -67,7 +67,7 @@
 
 
 
-  <meta name="keywords" content="japaness," />
+  <meta name="keywords" content="flask,Werkzeug," />
 
 
 
@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="あいそう「愛想」 讨厌，招待 間柄「あいだがら」关系 敢えて「あえて」特意，并不 あなたの将来のために、敢えて忠告「ちゅうこく」します どうしても行きたいなら、私はあえて反対しない 浅ましい「あさましい」卑鄙 欺く「あざむく」 嘲笑う「あさわらう」 あせる「焦る、褪せる」着急 朝寝坊「あさねぼう」睡懒觉 後回し「あとまわし」推迟 彼が自分のことを後回しにしても、他の人を助けるような人だ。 あやふや">
-<meta name="keywords" content="japaness">
+<meta name="description" content="这一功能的实现只需要两个函数，分别用在注册用户和验证用户阶段。  generate_password_hash(password, method= pbkdf2:sha1 , salt_length=8) :这个函数将原始密码作为输入，以字符串形式输出密码的散列值，输出的值可保存在用户数据库中 check_password_hash(hash, password) :这个函数的参数是从数据库中取回">
+<meta name="keywords" content="flask,Werkzeug">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jp-words-1">
-<meta property="og:url" content="http://reworth.site/2018/01/04/Jp-words-1/index.html">
+<meta property="og:title" content="使用Werkzeug实现密码散列">
+<meta property="og:url" content="http://reworth.site/2018/01/10/使用Werkzeug实现密码散列/index.html">
 <meta property="og:site_name" content="Reworth&#39;s Blog">
-<meta property="og:description" content="あいそう「愛想」 讨厌，招待 間柄「あいだがら」关系 敢えて「あえて」特意，并不 あなたの将来のために、敢えて忠告「ちゅうこく」します どうしても行きたいなら、私はあえて反対しない 浅ましい「あさましい」卑鄙 欺く「あざむく」 嘲笑う「あさわらう」 あせる「焦る、褪せる」着急 朝寝坊「あさねぼう」睡懒觉 後回し「あとまわし」推迟 彼が自分のことを後回しにしても、他の人を助けるような人だ。 あやふや">
+<meta property="og:description" content="这一功能的实现只需要两个函数，分别用在注册用户和验证用户阶段。  generate_password_hash(password, method= pbkdf2:sha1 , salt_length=8) :这个函数将原始密码作为输入，以字符串形式输出密码的散列值，输出的值可保存在用户数据库中 check_password_hash(hash, password) :这个函数的参数是从数据库中取回">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-04T09:14:26.776Z">
+<meta property="og:updated_time" content="2018-01-10T07:08:15.048Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jp-words-1">
-<meta name="twitter:description" content="あいそう「愛想」 讨厌，招待 間柄「あいだがら」关系 敢えて「あえて」特意，并不 あなたの将来のために、敢えて忠告「ちゅうこく」します どうしても行きたいなら、私はあえて反対しない 浅ましい「あさましい」卑鄙 欺く「あざむく」 嘲笑う「あさわらう」 あせる「焦る、褪せる」着急 朝寝坊「あさねぼう」睡懒觉 後回し「あとまわし」推迟 彼が自分のことを後回しにしても、他の人を助けるような人だ。 あやふや">
+<meta name="twitter:title" content="使用Werkzeug实现密码散列">
+<meta name="twitter:description" content="这一功能的实现只需要两个函数，分别用在注册用户和验证用户阶段。  generate_password_hash(password, method= pbkdf2:sha1 , salt_length=8) :这个函数将原始密码作为输入，以字符串形式输出密码的散列值，输出的值可保存在用户数据库中 check_password_hash(hash, password) :这个函数的参数是从数据库中取回">
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://reworth.site/2018/01/04/Jp-words-1/"/>
+  <link rel="canonical" href="http://reworth.site/2018/01/10/使用Werkzeug实现密码散列/"/>
 
 
 
 
 
-  <title>Jp-words-1 | Reworth's Blog</title>
+  <title>使用Werkzeug实现密码散列 | Reworth's Blog</title>
   
 
 
@@ -298,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://reworth.site/2018/01/04/Jp-words-1/">
+    <link itemprop="mainEntityOfPage" href="http://reworth.site/2018/01/10/使用Werkzeug实现密码散列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reworth Yan">
@@ -315,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Jp-words-1</h1>
+          <h1 class="post-title" itemprop="name headline">使用Werkzeug实现密码散列</h1>
         
 
         <div class="post-meta">
@@ -327,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-04T17:12:51+08:00">
-                2018-01-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-10T15:04:37+08:00">
+                2018-01-10
               </time>
             
 
@@ -350,8 +350,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/japaness/" itemprop="url" rel="index">
-                    <span itemprop="name">japaness</span>
+                  <a href="/categories/flask/" itemprop="url" rel="index">
+                    <span itemprop="name">flask</span>
                   </a>
                 </span>
 
@@ -392,43 +392,12 @@
       
 
       
-        <p>あいそう「愛想」 讨厌，招待</p>
-<p>間柄「あいだがら」关系</p>
-<p>敢えて「あえて」特意，并不</p>
-<p>あなたの将来のために、敢えて忠告「ちゅうこく」します</p>
-<p>どうしても行きたいなら、私はあえて反対しない</p>
-<p>浅ましい「あさましい」卑鄙</p>
-<p>欺く「あざむく」</p>
-<p>嘲笑う「あさわらう」</p>
-<p>あせる「焦る、褪せる」着急</p>
-<p>朝寝坊「あさねぼう」睡懒觉</p>
-<p>後回し「あとまわし」推迟</p>
-<p>彼が自分のことを後回しにしても、他の人を助けるような人だ。</p>
-<p>あやふや  含糊</p>
-<p>彼のあやふやな態度に、彼女は激怒「げきど」した。</p>
-<p>過ち「あやまち」 过错</p>
-<p>誰でも若い時は、過ちの一つや二つおかす。</p>
-<p>あらっぽい「荒っぽい、粗っぽい」  粗野</p>
-<p>彼はあらっぽい性格に見えますが、実は優しい人なんです。</p>
-<p>あらかじめ「予め」 预先</p>
-<p>あらかじめ必要なものをメモしていくと、無駄な買い物をしない。</p>
-<p>ありのまま   老实，坦白</p>
-<p>ありのままの私を認めてくれる人と結婚したいと思っている</p>
-<p>案の定「あんのじょう」果然，果如所料</p>
-<p>連休中の新幹線は、案の定、込んでいた。</p>
-<p>いかにも  果然</p>
-<p>いかにも、おっしゃる通りです。彼はいかにも優等生のダイプだ。</p>
-<p>幾多「いくた」许多</p>
-<p>父は、幾多の困難を乗り越えて、会社大きくしてきたそうだ</p>
-<p>一括「いっかつ」 汇总。一包在内</p>
-<p>時間がないので、三つの議案を一括して審議「しんぎ」する</p>
-<p>意図「いと」  意图</p>
-<p>著者のいとがよくわからない本だ</p>
-<p>今更「いまさら」  事到如今</p>
-<p>いまさら謝られでも、もう遲い。</p>
-<p>いやいや「嫌々」  勉勉强强</p>
-<p>内訳「うちわけ」  详细内容</p>
-<p>進歩「しんぽ」     进步</p>
+        <p>这一功能的实现只需要两个函数，分别用在注册用户和验证用户阶段。</p>
+<ul>
+<li>generate_password_hash(password, method= pbkdf2:sha1 , salt_length=8) :这个函数将原始密码作为输入，以字符串形式输出密码的散列值，输出的值可保存在用户数据库中</li>
+<li>check_password_hash(hash, password) :这个函数的参数是从数据库中取回的密码散列值和用户输入的密码进行比对。返回值为 True 表明密码正确。 </li>
+</ul>
+<p>Sample：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">from werkzeug.security import generate_password_hash, check_password_hash</span><br><span class="line">class User(UserMixin, db.Model):</span><br><span class="line">	__tablename__ = &apos;users&apos;</span><br><span class="line">    #...</span><br><span class="line">	id = db.Column(db.Integer, primary_key=True)</span><br><span class="line">	email = db.Column(db.String(64), unique=True, index=True)</span><br><span class="line">	username = db.Column(db.String(64), unique=True, index=True)</span><br><span class="line">	password_hash = db.Column(db.String(128))</span><br><span class="line"></span><br><span class="line">	@property</span><br><span class="line">	def password(self):</span><br><span class="line">		raise AttributeError(&apos;password is not a readable attribute&apos;)</span><br><span class="line"></span><br><span class="line">	@password.setter</span><br><span class="line">	def password(self, password):</span><br><span class="line">		self.password_hash = generate_password_hash(password)</span><br><span class="line">	</span><br><span class="line">	def verify_password(self, password):</span><br><span class="line">		return check_password_hash(self.password_hash, password)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -446,7 +415,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/japaness/" rel="tag"># japaness</a>
+            <a href="/tags/flask/" rel="tag"># flask</a>
+          
+            <a href="/tags/Werkzeug/" rel="tag"># Werkzeug</a>
           
         </div>
       
@@ -459,8 +430,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/04/vagrant/" rel="next" title="vagrant">
-                <i class="fa fa-chevron-left"></i> vagrant
+              <a href="/2018/01/06/nfs/" rel="next" title="nfs">
+                <i class="fa fa-chevron-left"></i> nfs
               </a>
             
           </div>
@@ -469,8 +440,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/05/flask-sqlachemy/" rel="prev" title="flask-sqlachemy">
-                flask-sqlachemy <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/16/redis-introduction/" rel="prev" title="redis-introduction">
+                redis-introduction <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
