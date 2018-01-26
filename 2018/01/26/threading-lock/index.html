@@ -67,7 +67,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="threading," />
 
 
 
@@ -80,16 +80,18 @@
 
 
 
-<meta name="description" content="可能，这就是修行。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Reworth&#39;s Blog">
-<meta property="og:url" content="http://reworth.site/page/2/index.html">
+<meta name="description" content="不使用lock的情况函数一：全局变量A的值每次加1，循环10次，并打印 12345def job1():    global A    for i in range(10):        A+=1        print(&amp;apos;job1&amp;apos;,A) 函数二：全局变量A的值每次加10，循环10次，并打印 12345def job2():    global A    for i in">
+<meta name="keywords" content="threading">
+<meta property="og:type" content="article">
+<meta property="og:title" content="threading-lock">
+<meta property="og:url" content="http://reworth.site/2018/01/26/threading-lock/index.html">
 <meta property="og:site_name" content="Reworth&#39;s Blog">
-<meta property="og:description" content="可能，这就是修行。">
+<meta property="og:description" content="不使用lock的情况函数一：全局变量A的值每次加1，循环10次，并打印 12345def job1():    global A    for i in range(10):        A+=1        print(&amp;apos;job1&amp;apos;,A) 函数二：全局变量A的值每次加10，循环10次，并打印 12345def job2():    global A    for i in">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-26T03:16:15.123Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Reworth&#39;s Blog">
-<meta name="twitter:description" content="可能，这就是修行。">
+<meta name="twitter:title" content="threading-lock">
+<meta name="twitter:description" content="不使用lock的情况函数一：全局变量A的值每次加1，循环10次，并打印 12345def job1():    global A    for i in range(10):        A+=1        print(&amp;apos;job1&amp;apos;,A) 函数二：全局变量A的值每次加10，循环10次，并打印 12345def job2():    global A    for i in">
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -129,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://reworth.site/page/2/"/>
+  <link rel="canonical" href="http://reworth.site/2018/01/26/threading-lock/"/>
 
 
 
 
 
-  <title>Reworth's Blog</title>
+  <title>threading-lock | Reworth's Blog</title>
   
 
 
@@ -154,8 +156,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -282,9 +283,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -297,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://reworth.site/2018/01/03/flask-definitions/">
+    <link itemprop="mainEntityOfPage" href="http://reworth.site/2018/01/26/threading-lock/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reworth Yan">
@@ -314,9 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/03/flask-definitions/" itemprop="url">flask definitions</a></h1>
+          <h1 class="post-title" itemprop="name headline">threading-lock</h1>
         
 
         <div class="post-meta">
@@ -328,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T19:16:42+08:00">
-                2018-01-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-26T11:14:54+08:00">
+                2018-01-26
               </time>
             
 
@@ -351,8 +350,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/flask/" itemprop="url" rel="index">
-                    <span itemprop="name">flask</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -369,6 +368,11 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
 
           
@@ -388,21 +392,28 @@
       
 
       
-        
-          
-          Flask’s some definitions
-WSGI: Web服务器网关接口，是一种Web服务使用的协议
-路由: 处理URL和函数之间关系的程序称为”路由”
-视图函数: 类似于index()这样的，被app.route装饰器注册为路由的函数，或者通过app.add_url_rule()添加路由
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/03/flask-definitions/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h2 id="不使用lock的情况"><a href="#不使用lock的情况" class="headerlink" title="不使用lock的情况"></a>不使用lock的情况</h2><p>函数一：全局变量A的值每次加1，循环10次，并打印</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def job1():</span><br><span class="line">    global A</span><br><span class="line">    for i in range(10):</span><br><span class="line">        A+=1</span><br><span class="line">        print(&apos;job1&apos;,A)</span><br></pre></td></tr></table></figure>
+<p>函数二：全局变量A的值每次加10，循环10次，并打印</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def job2():</span><br><span class="line">    global A</span><br><span class="line">    for i in range(10):</span><br><span class="line">        A+=10</span><br><span class="line">        print(&apos;job2&apos;,A)</span><br></pre></td></tr></table></figure>
+<p>主函数：定义两个线程，分别执行函数一和函数二</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if __name__== &apos;__main__&apos;:</span><br><span class="line">    A=0</span><br><span class="line">    t1=threading.Thread(target=job1)</span><br><span class="line">    t2=threading.Thread(target=job2)</span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line">    t1.join()</span><br><span class="line">    t2.join()</span><br></pre></td></tr></table></figure>
+<p>完整代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import threading</span><br><span class="line"></span><br><span class="line">def job1():</span><br><span class="line">    global A</span><br><span class="line">    for i in range(10):</span><br><span class="line">        A+=1</span><br><span class="line">        print(&apos;job1&apos;,A)</span><br><span class="line"></span><br><span class="line">def job2():</span><br><span class="line">    global A</span><br><span class="line">    for i in range(10):</span><br><span class="line">        A+=10</span><br><span class="line">        print(&apos;job2&apos;,A)</span><br><span class="line"></span><br><span class="line">if __name__== &apos;__main__&apos;:</span><br><span class="line">    lock=threading.Lock()</span><br><span class="line">    A=0</span><br><span class="line">    t1=threading.Thread(target=job1)</span><br><span class="line">    t2=threading.Thread(target=job2)</span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line">    t1.join()</span><br><span class="line">    t2.join()</span><br></pre></td></tr></table></figure>
+<p>运行结果（在spyder编译器下运行的打印结果）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">job1job2 11</span><br><span class="line">job2 21</span><br><span class="line">job2 31</span><br><span class="line">job2 41</span><br><span class="line">job2 51</span><br><span class="line">job2 61</span><br><span class="line">job2 71</span><br><span class="line">job2 81</span><br><span class="line">job2 91</span><br><span class="line">job2 101</span><br><span class="line"> 1</span><br><span class="line">job1 102</span><br><span class="line">job1 103</span><br><span class="line">job1 104</span><br><span class="line">job1 105</span><br><span class="line">job1 106</span><br><span class="line">job1 107</span><br><span class="line">job1 108</span><br><span class="line">job1 109</span><br><span class="line">job1 110</span><br></pre></td></tr></table></figure>
+<p>可以看出，打印的结果非常混乱</p>
+<h2 id="使用-Lock-的情况"><a href="#使用-Lock-的情况" class="headerlink" title="使用 Lock 的情况"></a>使用 Lock 的情况</h2><p>lock在不同线程使用同一共享内存时，能够确保线程之间互不影响，使用lock的方法是， 在每个线程执行运算修改共享内存之前，执行<code>lock.acquire()</code>将共享内存上锁， 确保当前线程执行时，内存不会被其他线程访问，执行运算完毕后，使用<code>lock.release()</code>将锁打开， 保证其他的线程可以使用该共享内存。</p>
+<p>函数一和函数二加锁</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def job1():</span><br><span class="line">    global A,lock</span><br><span class="line">    lock.acquire()</span><br><span class="line">    for i in range(10):</span><br><span class="line">        A+=1</span><br><span class="line">        print(&apos;job1&apos;,A)</span><br><span class="line">    lock.release()</span><br><span class="line"></span><br><span class="line">def job2():</span><br><span class="line">    global A,lock</span><br><span class="line">    lock.acquire()</span><br><span class="line">    for i in range(10):</span><br><span class="line">        A+=10</span><br><span class="line">        print(&apos;job2&apos;,A)</span><br><span class="line">    lock.release()</span><br></pre></td></tr></table></figure>
+<p>主函数中定义一个<code>Lock</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if __name__== &apos;__main__&apos;:</span><br><span class="line">    lock=threading.Lock()</span><br><span class="line">    A=0</span><br><span class="line">    t1=threading.Thread(target=job1)</span><br><span class="line">    t2=threading.Thread(target=job2)</span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line">    t1.join()</span><br><span class="line">    t2.join()</span><br></pre></td></tr></table></figure>
+<p>完整的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import threading</span><br><span class="line"></span><br><span class="line">def job1():</span><br><span class="line">    global A,lock</span><br><span class="line">    lock.acquire()</span><br><span class="line">    for i in range(10):</span><br><span class="line">        A+=1</span><br><span class="line">        print(&apos;job1&apos;,A)</span><br><span class="line">    lock.release()</span><br><span class="line"></span><br><span class="line">def job2():</span><br><span class="line">    global A,lock</span><br><span class="line">    lock.acquire()</span><br><span class="line">    for i in range(10):</span><br><span class="line">        A+=10</span><br><span class="line">        print(&apos;job2&apos;,A)</span><br><span class="line">    lock.release()</span><br><span class="line"></span><br><span class="line">if __name__== &apos;__main__&apos;:</span><br><span class="line">    lock=threading.Lock()</span><br><span class="line">    A=0</span><br><span class="line">    t1=threading.Thread(target=job1)</span><br><span class="line">    t2=threading.Thread(target=job2)</span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line">    t1.join()</span><br><span class="line">    t2.join()</span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">job1 1</span><br><span class="line">job1 2</span><br><span class="line">job1 3</span><br><span class="line">job1 4</span><br><span class="line">job1 5</span><br><span class="line">job1 6</span><br><span class="line">job1 7</span><br><span class="line">job1 8</span><br><span class="line">job1 9</span><br><span class="line">job1 10</span><br><span class="line">job2 20</span><br><span class="line">job2 30</span><br><span class="line">job2 40</span><br><span class="line">job2 50</span><br><span class="line">job2 60</span><br><span class="line">job2 70</span><br><span class="line">job2 80</span><br><span class="line">job2 90</span><br><span class="line">job2 100</span><br><span class="line">job2 110</span><br></pre></td></tr></table></figure>
+<p>从打印结果来看，使用<code>lock</code>后，一个一个线程执行完。使用<code>lock</code>和不使用<code>lock</code>，最后打印输出的结果是不同的。</p>
+
       
     </div>
     
@@ -417,318 +428,36 @@ WSGI: Web服务器网关接口，是一种Web服务使用的协议
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://reworth.site/2018/01/01/sed-grep/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Reworth Yan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p1tniwn00.bkt.clouddn.com/QQ%E5%9B%BE%E7%89%8720171229211502.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Reworth's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/01/sed-grep/" itemprop="url">sed-grep</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-01T17:20:47+08:00">
-                2018-01-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/threading/" rel="tag"># threading</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-          sedsed对文本的处理非常的强大，并且sed非常小，操作跟awk类似。sed是按顺序逐行进行读取文件。然后，它执行的是该行指定的所有操作，并在完成请求的修改之后的内容显示出来，也可以将其存放到文件之中。
-sed  [-nefri] [动作]
--n ：使用安静(silent)模式。在一般 sed 的
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/01/sed-grep/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/19/路由协议/" rel="next" title="路由协议">
+                <i class="fa fa-chevron-left"></i> 路由协议
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://reworth.site/2017/12/29/awk/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Reworth Yan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p1tniwn00.bkt.clouddn.com/QQ%E5%9B%BE%E7%89%8720171229211502.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Reworth's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/29/awk/" itemprop="url">awk</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-29T18:00:59+08:00">
-                2017-12-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          awkawk是一种处理文本的语言，是一个强大的文本分析工具，awk是以列为划分记数的，$0表示所有列，$1表示第一列，$2表示第二列。
-awk常用参数
--F指定输入文件分隔符，如-F：
--v 赋值一个用户定义变量，如-va=1
--f 从脚本文件中读取awk命令
-
-多个分隔符awk -F &#39;[
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/29/awk/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -738,162 +467,11 @@ awk常用参数
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://reworth.site/2017/12/28/volume-container/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Reworth Yan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p1tniwn00.bkt.clouddn.com/QQ%E5%9B%BE%E7%89%8720171229211502.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Reworth's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/28/volume-container/" itemprop="url">volume-container</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T19:00:24+08:00">
-                2017-12-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          volume container是专门为其他容器提供volume的容器。它提供的卷可以是bind mount,也可以是docker managed volume.下面我创建一个volume container:1234docker create --name vc_data \		-v ~/htdo
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/28/volume-container/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
 
 
           </div>
@@ -901,6 +479,10 @@ awk常用参数
 
 
           
+
+  
+
+
 
         </div>
         
@@ -921,8 +503,17 @@ awk常用参数
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1009,6 +600,22 @@ awk常用参数
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#不使用lock的情况"><span class="nav-number">1.</span> <span class="nav-text">不使用lock的情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Lock-的情况"><span class="nav-number">2.</span> <span class="nav-text">使用 Lock 的情况</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1170,6 +777,10 @@ awk常用参数
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 

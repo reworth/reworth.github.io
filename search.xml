@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[threading-lock]]></title>
+    <url>%2F2018%2F01%2F26%2Fthreading-lock%2F</url>
+    <content type="text"><![CDATA[不使用lock的情况函数一：全局变量A的值每次加1，循环10次，并打印 12345def job1(): global A for i in range(10): A+=1 print(&apos;job1&apos;,A) 函数二：全局变量A的值每次加10，循环10次，并打印 12345def job2(): global A for i in range(10): A+=10 print(&apos;job2&apos;,A) 主函数：定义两个线程，分别执行函数一和函数二 12345678if __name__== &apos;__main__&apos;: A=0 t1=threading.Thread(target=job1) t2=threading.Thread(target=job2) t1.start() t2.start() t1.join() t2.join() 完整代码： 1234567891011121314151617181920212223import threadingdef job1(): global A for i in range(10): A+=1 print(&apos;job1&apos;,A)def job2(): global A for i in range(10): A+=10 print(&apos;job2&apos;,A)if __name__== &apos;__main__&apos;: lock=threading.Lock() A=0 t1=threading.Thread(target=job1) t2=threading.Thread(target=job2) t1.start() t2.start() t1.join() t2.join() 运行结果（在spyder编译器下运行的打印结果）： 1234567891011121314151617181920job1job2 11job2 21job2 31job2 41job2 51job2 61job2 71job2 81job2 91job2 101 1job1 102job1 103job1 104job1 105job1 106job1 107job1 108job1 109job1 110 可以看出，打印的结果非常混乱 使用 Lock 的情况lock在不同线程使用同一共享内存时，能够确保线程之间互不影响，使用lock的方法是， 在每个线程执行运算修改共享内存之前，执行lock.acquire()将共享内存上锁， 确保当前线程执行时，内存不会被其他线程访问，执行运算完毕后，使用lock.release()将锁打开， 保证其他的线程可以使用该共享内存。 函数一和函数二加锁 123456789101112131415def job1(): global A,lock lock.acquire() for i in range(10): A+=1 print(&apos;job1&apos;,A) lock.release()def job2(): global A,lock lock.acquire() for i in range(10): A+=10 print(&apos;job2&apos;,A) lock.release() 主函数中定义一个Lock 123456789if __name__== &apos;__main__&apos;: lock=threading.Lock() A=0 t1=threading.Thread(target=job1) t2=threading.Thread(target=job2) t1.start() t2.start() t1.join() t2.join() 完整的代码 123456789101112131415161718192021222324252627import threadingdef job1(): global A,lock lock.acquire() for i in range(10): A+=1 print(&apos;job1&apos;,A) lock.release()def job2(): global A,lock lock.acquire() for i in range(10): A+=10 print(&apos;job2&apos;,A) lock.release()if __name__== &apos;__main__&apos;: lock=threading.Lock() A=0 t1=threading.Thread(target=job1) t2=threading.Thread(target=job2) t1.start() t2.start() t1.join() t2.join() 运行结果 1234567891011121314151617181920job1 1job1 2job1 3job1 4job1 5job1 6job1 7job1 8job1 9job1 10job2 20job2 30job2 40job2 50job2 60job2 70job2 80job2 90job2 100job2 110 从打印结果来看，使用lock后，一个一个线程执行完。使用lock和不使用lock，最后打印输出的结果是不同的。]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>threading</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[路由协议]]></title>
     <url>%2F2018%2F01%2F19%2F%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE%2F</url>
     <content type="text"><![CDATA[路由控制的定义IP地址与路由控制互联网是由路由器连接的网络组合而成的，为了能让数据包正确达到目标主机，路由器必须在途中进行正确的转发。这种向“正确方向”装发数据所进行的处理就叫做路由控制或路由。路由器是根据路由控制表转发数据。 静态路由与动态路由静态路由是指事先设置好路由器和主机中将路由信息固定的一种方法。动态路由是指让路由协议在运行过程中自动地设置路由控制信息的一种方法。 路由控制范围人们根据路由控制的范围常使用IGP（Interior Gateway Protocol）和EGP（Exterior Gateway Protocol）两种类型的路由协议。 路由算法路由控制有各种各样的算法，其中最具代表性的两种，是距离向量（Distance-Vector）算法和链路状态（Link-State）算法。距离向量算法DV是根据距离和方向决定目标网络或目标主机位置的一种方法。链路状态算法是路由器在了解网络整体连接状态的基础上生成路由控制表的一种方法。 主要路由协议 路由协议名 下一层协议 方式 使用范围 循环检测 RIP UDP 距离向量 域内 不可以 RIP2 UDP 距离向量 域内 不可以 OSFP IP 链路状态 域内 可以 EGP IP 距离向量 对外连接 不可以 BGP TCP 距离向量 对外连接 不可以]]></content>
