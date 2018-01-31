@@ -67,7 +67,7 @@
 
 
 
-  <meta name="keywords" content="threading," />
+  <meta name="keywords" content="game data," />
 
 
 
@@ -80,18 +80,31 @@
 
 
 
-<meta name="description" content="不使用lock的情况函数一：全局变量A的值每次加1，循环10次，并打印 12345def job1():    global A    for i in range(10):        A+=1        print(&amp;apos;job1&amp;apos;,A) 函数二：全局变量A的值每次加10，循环10次，并打印 12345def job2():    global A    for i in">
-<meta name="keywords" content="threading">
+<meta name="description" content="数据分析为运营的必备技能之一，无论你是研发商，渠道商甚至发行商，都用得上。这篇就简单的介绍一下各种指数并且给出分析思路，用的统计工具为常见的友盟，本文中数据皆为虚拟数据。 先来看应用总览：   累计用户这个大家都明白，为游戏上线以来的所有用户统计。其中重点关注下面几个数据： 付费率（重要指标）：付费玩家所占据总玩家的比例，如果细分的话，付费率可以分为注册用户付费率，平均在线付费率和活跃用户付费率。">
+<meta name="keywords" content="game data">
 <meta property="og:type" content="article">
-<meta property="og:title" content="threading-lock">
-<meta property="og:url" content="http://reworth.site/2018/01/26/threading-lock/index.html">
+<meta property="og:title" content="game data analysis">
+<meta property="og:url" content="http://reworth.site/2018/01/31/game-data-analysis/index.html">
 <meta property="og:site_name" content="Reworth&#39;s Blog">
-<meta property="og:description" content="不使用lock的情况函数一：全局变量A的值每次加1，循环10次，并打印 12345def job1():    global A    for i in range(10):        A+=1        print(&amp;apos;job1&amp;apos;,A) 函数二：全局变量A的值每次加10，循环10次，并打印 12345def job2():    global A    for i in">
+<meta property="og:description" content="数据分析为运营的必备技能之一，无论你是研发商，渠道商甚至发行商，都用得上。这篇就简单的介绍一下各种指数并且给出分析思路，用的统计工具为常见的友盟，本文中数据皆为虚拟数据。 先来看应用总览：   累计用户这个大家都明白，为游戏上线以来的所有用户统计。其中重点关注下面几个数据： 付费率（重要指标）：付费玩家所占据总玩家的比例，如果细分的话，付费率可以分为注册用户付费率，平均在线付费率和活跃用户付费率。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-26T03:16:15.123Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4347012-161e8af23c9eab64.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4347012-59a1fe3049120bf7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4347012-65ca769e089e8eeb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4347012-be58ed5b4c43d77b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4347012-3947349ce1072617.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4347012-cc8b3431883b4fc0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4347012-dca2a1022fbe186e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4347012-6ff3310a861ac946.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4347012-0e281c288afe6b06.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4347012-79467882c9cc6df1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4347012-925f70a8cdfcb80a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4347012-d1d107850870e44a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-01-31T03:22:04.097Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="threading-lock">
-<meta name="twitter:description" content="不使用lock的情况函数一：全局变量A的值每次加1，循环10次，并打印 12345def job1():    global A    for i in range(10):        A+=1        print(&amp;apos;job1&amp;apos;,A) 函数二：全局变量A的值每次加10，循环10次，并打印 12345def job2():    global A    for i in">
+<meta name="twitter:title" content="game data analysis">
+<meta name="twitter:description" content="数据分析为运营的必备技能之一，无论你是研发商，渠道商甚至发行商，都用得上。这篇就简单的介绍一下各种指数并且给出分析思路，用的统计工具为常见的友盟，本文中数据皆为虚拟数据。 先来看应用总览：   累计用户这个大家都明白，为游戏上线以来的所有用户统计。其中重点关注下面几个数据： 付费率（重要指标）：付费玩家所占据总玩家的比例，如果细分的话，付费率可以分为注册用户付费率，平均在线付费率和活跃用户付费率。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/4347012-161e8af23c9eab64.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -131,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://reworth.site/2018/01/26/threading-lock/"/>
+  <link rel="canonical" href="http://reworth.site/2018/01/31/game-data-analysis/"/>
 
 
 
 
 
-  <title>threading-lock | Reworth's Blog</title>
+  <title>game data analysis | Reworth's Blog</title>
   
 
 
@@ -298,7 +311,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://reworth.site/2018/01/26/threading-lock/">
+    <link itemprop="mainEntityOfPage" href="http://reworth.site/2018/01/31/game-data-analysis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reworth Yan">
@@ -315,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">threading-lock</h1>
+          <h1 class="post-title" itemprop="name headline">game data analysis</h1>
         
 
         <div class="post-meta">
@@ -327,8 +340,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-26T11:14:54+08:00">
-                2018-01-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-31T11:20:27+08:00">
+                2018-01-31
               </time>
             
 
@@ -337,28 +350,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -387,27 +378,92 @@
       
 
       
-        <h2 id="不使用lock的情况"><a href="#不使用lock的情况" class="headerlink" title="不使用lock的情况"></a>不使用lock的情况</h2><p>函数一：全局变量A的值每次加1，循环10次，并打印</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def job1():</span><br><span class="line">    global A</span><br><span class="line">    for i in range(10):</span><br><span class="line">        A+=1</span><br><span class="line">        print(&apos;job1&apos;,A)</span><br></pre></td></tr></table></figure>
-<p>函数二：全局变量A的值每次加10，循环10次，并打印</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def job2():</span><br><span class="line">    global A</span><br><span class="line">    for i in range(10):</span><br><span class="line">        A+=10</span><br><span class="line">        print(&apos;job2&apos;,A)</span><br></pre></td></tr></table></figure>
-<p>主函数：定义两个线程，分别执行函数一和函数二</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if __name__== &apos;__main__&apos;:</span><br><span class="line">    A=0</span><br><span class="line">    t1=threading.Thread(target=job1)</span><br><span class="line">    t2=threading.Thread(target=job2)</span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line">    t1.join()</span><br><span class="line">    t2.join()</span><br></pre></td></tr></table></figure>
-<p>完整代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import threading</span><br><span class="line"></span><br><span class="line">def job1():</span><br><span class="line">    global A</span><br><span class="line">    for i in range(10):</span><br><span class="line">        A+=1</span><br><span class="line">        print(&apos;job1&apos;,A)</span><br><span class="line"></span><br><span class="line">def job2():</span><br><span class="line">    global A</span><br><span class="line">    for i in range(10):</span><br><span class="line">        A+=10</span><br><span class="line">        print(&apos;job2&apos;,A)</span><br><span class="line"></span><br><span class="line">if __name__== &apos;__main__&apos;:</span><br><span class="line">    lock=threading.Lock()</span><br><span class="line">    A=0</span><br><span class="line">    t1=threading.Thread(target=job1)</span><br><span class="line">    t2=threading.Thread(target=job2)</span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line">    t1.join()</span><br><span class="line">    t2.join()</span><br></pre></td></tr></table></figure>
-<p>运行结果（在spyder编译器下运行的打印结果）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">job1job2 11</span><br><span class="line">job2 21</span><br><span class="line">job2 31</span><br><span class="line">job2 41</span><br><span class="line">job2 51</span><br><span class="line">job2 61</span><br><span class="line">job2 71</span><br><span class="line">job2 81</span><br><span class="line">job2 91</span><br><span class="line">job2 101</span><br><span class="line"> 1</span><br><span class="line">job1 102</span><br><span class="line">job1 103</span><br><span class="line">job1 104</span><br><span class="line">job1 105</span><br><span class="line">job1 106</span><br><span class="line">job1 107</span><br><span class="line">job1 108</span><br><span class="line">job1 109</span><br><span class="line">job1 110</span><br></pre></td></tr></table></figure>
-<p>可以看出，打印的结果非常混乱</p>
-<h2 id="使用-Lock-的情况"><a href="#使用-Lock-的情况" class="headerlink" title="使用 Lock 的情况"></a>使用 Lock 的情况</h2><p>lock在不同线程使用同一共享内存时，能够确保线程之间互不影响，使用lock的方法是， 在每个线程执行运算修改共享内存之前，执行<code>lock.acquire()</code>将共享内存上锁， 确保当前线程执行时，内存不会被其他线程访问，执行运算完毕后，使用<code>lock.release()</code>将锁打开， 保证其他的线程可以使用该共享内存。</p>
-<p>函数一和函数二加锁</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def job1():</span><br><span class="line">    global A,lock</span><br><span class="line">    lock.acquire()</span><br><span class="line">    for i in range(10):</span><br><span class="line">        A+=1</span><br><span class="line">        print(&apos;job1&apos;,A)</span><br><span class="line">    lock.release()</span><br><span class="line"></span><br><span class="line">def job2():</span><br><span class="line">    global A,lock</span><br><span class="line">    lock.acquire()</span><br><span class="line">    for i in range(10):</span><br><span class="line">        A+=10</span><br><span class="line">        print(&apos;job2&apos;,A)</span><br><span class="line">    lock.release()</span><br></pre></td></tr></table></figure>
-<p>主函数中定义一个<code>Lock</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if __name__== &apos;__main__&apos;:</span><br><span class="line">    lock=threading.Lock()</span><br><span class="line">    A=0</span><br><span class="line">    t1=threading.Thread(target=job1)</span><br><span class="line">    t2=threading.Thread(target=job2)</span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line">    t1.join()</span><br><span class="line">    t2.join()</span><br></pre></td></tr></table></figure>
-<p>完整的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import threading</span><br><span class="line"></span><br><span class="line">def job1():</span><br><span class="line">    global A,lock</span><br><span class="line">    lock.acquire()</span><br><span class="line">    for i in range(10):</span><br><span class="line">        A+=1</span><br><span class="line">        print(&apos;job1&apos;,A)</span><br><span class="line">    lock.release()</span><br><span class="line"></span><br><span class="line">def job2():</span><br><span class="line">    global A,lock</span><br><span class="line">    lock.acquire()</span><br><span class="line">    for i in range(10):</span><br><span class="line">        A+=10</span><br><span class="line">        print(&apos;job2&apos;,A)</span><br><span class="line">    lock.release()</span><br><span class="line"></span><br><span class="line">if __name__== &apos;__main__&apos;:</span><br><span class="line">    lock=threading.Lock()</span><br><span class="line">    A=0</span><br><span class="line">    t1=threading.Thread(target=job1)</span><br><span class="line">    t2=threading.Thread(target=job2)</span><br><span class="line">    t1.start()</span><br><span class="line">    t2.start()</span><br><span class="line">    t1.join()</span><br><span class="line">    t2.join()</span><br></pre></td></tr></table></figure>
-<p>运行结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">job1 1</span><br><span class="line">job1 2</span><br><span class="line">job1 3</span><br><span class="line">job1 4</span><br><span class="line">job1 5</span><br><span class="line">job1 6</span><br><span class="line">job1 7</span><br><span class="line">job1 8</span><br><span class="line">job1 9</span><br><span class="line">job1 10</span><br><span class="line">job2 20</span><br><span class="line">job2 30</span><br><span class="line">job2 40</span><br><span class="line">job2 50</span><br><span class="line">job2 60</span><br><span class="line">job2 70</span><br><span class="line">job2 80</span><br><span class="line">job2 90</span><br><span class="line">job2 100</span><br><span class="line">job2 110</span><br></pre></td></tr></table></figure>
-<p>从打印结果来看，使用<code>lock</code>后，一个一个线程执行完。使用<code>lock</code>和不使用<code>lock</code>，最后打印输出的结果是不同的。</p>
+        <p>数据分析为运营的必备技能之一，无论你是研发商，渠道商甚至发行商，都用得上。这篇就简单的介绍一下各种指数并且给出分析思路，用的统计工具为常见的友盟，本文中数据皆为虚拟数据。</p>
+<p>先来看应用总览：</p>
+<figure style="box-sizing: inherit; margin: 24px 0px; color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 27.2px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><img src="http://upload-images.jianshu.io/upload_images/4347012-161e8af23c9eab64.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br><br></figure>
+
+<p>累计用户这个大家都明白，为游戏上线以来的所有用户统计。其中重点关注下面几个数据：</p>
+<p><strong>付费率</strong>（重要指标）：付费玩家所占据总玩家的比例，如果细分的话，付费率可以分为注册用户付费率，平均在线付费率和活跃用户付费率。图片中为5.93%，在这里的意思是100个活跃玩家有接近6个付费。</p>
+<p>大家玩过一些页游，手游，就可以看到 各种金光闪闪的《<strong>首冲大礼</strong>》，做过研发的同学估计深有体会，很多都会单独做个ICON来提醒玩家：首冲只要1元，即可获得价值188元的奖励！为的是什么，就是提高这个指数：付费率。你可以用户少，你可以人均付费少，但是付费率高，一样可以得到渠道青睐，获得更多推荐展示机会（行业俗称为“吸量”）。</p>
+<p><strong>ARPU</strong>（重要指标）：平均每用户收入。可以理解为收入除以用户数。图片中实例为26，相当于每个玩家人均付费26元。</p>
+<p><strong>ARPPU</strong>（重要指标）：平均每付费用户收入。可以理解为收入除以付费用户数。</p>
+<p>这三个指数理论上当然是越高越好，我们通过这些数据对游戏进行付费优化，比如某游戏人均付费率很低，但是ARPPU很高，那就说明大R的付费能力强，针对这一点，我们做一些付费功能调整和优化，甚至专属大R客服，让大R玩的更开心。</p>
+<p>再比如某游戏人均付费率高，但是ARPPU很低，说明大部分玩家喜欢花一些小钱，那么我们针对这部分玩家，多增加一些小额的礼包。这里就牵扯到 “<strong>用户画像”</strong> 这个概念，稍后我们结合其他数据一起来说明。</p>
+<p><strong>新增用户分析</strong></p>
+<figure style="box-sizing: inherit; margin: 24px 0px; color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 27.2px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><img src="http://upload-images.jianshu.io/upload_images/4347012-59a1fe3049120bf7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br><br></figure>
+
+<p>说到新增用户，那就离不开<strong>投放和转化率</strong>这些概念，我们知道，一个APP或者游戏上架，用户会点击下载，那么这个用户是哪里来的呢？简单来分为2个方面。</p>
+<p>自然用户：俗称自然量，没做推广，没做广告，用户自发下载的。</p>
+<p>好的运营，会不花钱吸引用户，提升展示机会，比如关键字优化啊，蹭热度啊（根据当前热点事件写软文植入），游戏包体优化(googleplay限制包体100M以内)，展示ICON优化等。</p>
+<p>推广用户：投放广告或者宣传活动，用户看到，接收到信息，吸引而来。</p>
+<p>这里的数据是可以结合投放来一起分析，比如策划了一个推广活动，花费20万，吸引了10万用户，这次活动新增用户成本为2元；第二次举办了一个活动，花费20万，只来了5万用户，不考虑用户成本递增的话，就要开始分析问题了：</p>
+<p>1.这次活动投放目标群体是否有问题？是否精准？</p>
+<p>2.这次活动策划方案是否起到作用？是否有爆点？</p>
+<p>3.这次活动是否执行的很好？有无遗漏？</p>
+<p>4.有哪些教训吸取和避免？</p>
+<p>同理，如果活动做的很成功，同样有思考的部分，哪些地方做得好，可以当做经验和再次投放侧重方向。</p>
+<p><strong>留存率</strong></p>
+<figure style="box-sizing: inherit; margin: 24px 0px; color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 27.2px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><img src="http://upload-images.jianshu.io/upload_images/4347012-65ca769e089e8eeb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br><br></figure>
+
+<p><strong>次日留存率</strong>（重要指标）：（当天新增的用户中，在注册的第2天还登录的用户数）/第一天新增总用户数</p>
+<p><strong>7日留存率</strong>（重要指标）：（第一天新增的用户中，在注册的第7天还有登录的用户数）/第一天新增总用户数</p>
+<p>这两项是渠道和研发商都非常重视的数据，一般项目上线都有个测试期，俗称“调数据”，主要就是优化次留，7留情况。</p>
+<p>所以现在游戏大部分都有7天连续登陆大礼包，第七天送紫色卡牌，紫色装备，有量的话语方（渠道）非常看重，为了数据好看，大家使出浑身招式留住玩家。</p>
+<p>根据留存来分析问题：</p>
+<p>1.次留率很低，大部分玩家第二天不再上线，可能引起的原因：新手阶段不友好；开场不吸引人；游戏上手难度大；功能引导太繁琐；程序bug太多，闪退，卡死，无法登陆等。</p>
+<p>2.次留率不低，但是第3-4天大量流失，可能引起的原因：游戏内容重复，单调；游戏挫败感太强；新手无对应保护等。</p>
+<p><strong>版本数据</strong></p>
+<figure style="box-sizing: inherit; margin: 24px 0px; color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 27.2px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><img src="http://upload-images.jianshu.io/upload_images/4347012-be58ed5b4c43d77b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br><br></figure>
+
+<p>游戏每个版本还有多少人在玩，这个数据其实对游戏相对不太重要，大家了解下热更新，整包更新，版本兼容即可。</p>
+<p>对于APP而言，更新大版本的时候，总有一些用户怀念老版本的界面风格等，可以依次作为参考。</p>
+<p><strong>渠道用户数据</strong></p>
+<figure style="box-sizing: inherit; margin: 24px 0px; color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 27.2px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><img src="http://upload-images.jianshu.io/upload_images/4347012-3947349ce1072617.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br><br></figure>
+
+<p>我们知道，iOS系统渠道较少，主要就是App Store和早期的一些越狱渠道比如91、PP助手、同步推、Itools、快用苹果助手等。</p>
+<p>现在很多上游戏的顺序是先越狱渠道，作为测试，再App Store，最后安卓。因为苹果机型相对少，适配简单，但App Store审核时间较长，而游戏都是要不断修改优化的，故先上越狱渠道来测试，改完了再上App Store。用户虽然越狱了，但依然是iOS用户，ARPU值相对会比安卓高一些。</p>
+<p>而安卓这边就混乱一些，一来机型繁多适配测试时间长，二来渠道太多依次接入各家SDK，我曾经参与的一款单机游戏，一次就要打出30多个安卓渠道包。</p>
+<p>根据渠道用户数量分析，就可以针对推出一些活动，比如渠道专用的激活码，大礼包等。哪些渠道用户数量多，投入更多时间，主推这个渠道；哪些渠道相对用户数少，维护可以少一些。集中力量做重要的渠道。</p>
+<p><strong>终端设备数据</strong></p>
+<figure style="box-sizing: inherit; margin: 24px 0px; color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 27.2px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><img src="http://upload-images.jianshu.io/upload_images/4347012-cc8b3431883b4fc0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br><br></figure>
+
+<p>万万没想到….我们设备第一名竟然是李易峰杨幂同款….根据用户机型，做对应的优化，适配，测试。</p>
+<p><strong>网络及运营商数据</strong></p>
+<figure style="box-sizing: inherit; margin: 24px 0px; color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 27.2px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><img src="http://upload-images.jianshu.io/upload_images/4347012-dca2a1022fbe186e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br><br></figure>
+
+<p>大部分的用户，起码95%用的都是wifi，说明我国4G还是比较贵啊…哈哈。根据这个信息，游戏可以相对更新一些比较大的数据包。</p>
+<p>至于运营商，妥妥的移动第一名，甩来联通电信一大截。</p>
+<p><strong>用户地域</strong></p>
+<figure style="box-sizing: inherit; margin: 24px 0px; color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 27.2px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><img src="http://upload-images.jianshu.io/upload_images/4347012-6ff3310a861ac946.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br><br></figure>
+
+<p>可以看到各个省份的玩家数量，所在国家。</p>
+<p>关于地域，其实也有很多内容可以思考，哪些区域用户特征比较明显，比如四川麻将等相对地域性的玩法，在本地的接受程度就比较高一些。比如某些国家有一些忌讳等要避开。</p>
+<p>其实这些都是在进行用户画像，通过大数据来推断出我们的用户是谁，看到这里，大家心里应该已经勾勒出用户的大概情况：</p>
+<p>买得起3000元左右的新款手机，有一些消费能力，玩游戏的时候大部分都有WiFi（室内），非驴友，大部分玩游戏时间在周末…..别着急，我们接着看其他数据。</p>
+<p><strong>付费用户趋势</strong></p>
+<figure style="box-sizing: inherit; margin: 24px 0px; color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 27.2px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><img src="http://upload-images.jianshu.io/upload_images/4347012-0e281c288afe6b06.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br><br></figure>
+
+<p>蓝色为新付费用户：当日首次付费的用户。橙色为老付费用户。如图可以看到我们新增付费用户比较高，说明我们对新用户的付费吸引更大，那么需要做下面这些思考。</p>
+<p>1.老用户的付费提升：如何留住老用户，并让他们付费；相对新用户，老用户更需要的是什么；提高老用户付费冲动，比如推出更牛逼后期高等级穿的装备，作为目标让老用户追求；游戏版本是否需要更新，增加新内容给老用户。</p>
+<p>2.新用户付费优化：大部分充值的玩家会多次充值，如何留住这些已经充值的用户，哪些功能细节做得好，可以借鉴。</p>
+<p><strong>使用时长</strong></p>
+<figure style="box-sizing: inherit; margin: 24px 0px; color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 27.2px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><img src="http://upload-images.jianshu.io/upload_images/4347012-79467882c9cc6df1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br><br></figure>
+
+<p>根据数据，我们用户单次玩游戏大部分集中在3-10分钟这个区间段。</p>
+<p>使用时长这个是有因果关系的，在项目初期，我们就会给项目定位，是轻度的休闲游戏还是偏中度重度的MMO等。假如我们定位于轻度休闲类，一局几分钟，玩家每天玩个几把，那么项目的生命周期，各个系统包括付费都会围绕这个展开，上线后看数据，跟我们预想一样，那就稳了，如果到时候一看数据，玩家每天投入2-3小时，那就得思考是哪里出的问题导致偏差，如何调整补救等。</p>
+<p>典型的例子比如COC，皇室战争，每局几分钟，COC中的建筑升级需要时间，造兵需要时间，英雄的恢复需要时间，圣水收集需要时间，设计的循环是：上线准备——一局战斗——下线——恢复补兵——上线准备——一局战斗。</p>
+<p><strong>启动次数</strong></p>
+<figure style="box-sizing: inherit; margin: 24px 0px; color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 27.2px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><img src="http://upload-images.jianshu.io/upload_images/4347012-925f70a8cdfcb80a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br><br></figure>
+
+<p>每天玩家启动的次数统计，当然我们可以设计一些内容来提高用户启动次数。</p>
+<p>比如每隔2小时开一个宝箱，玩家就会每隔几个小时上线看看。</p>
+<p><strong>自定义事件</strong></p>
+<figure style="box-sizing: inherit; margin: 24px 0px; color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 27.2px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);"><img src="http://upload-images.jianshu.io/upload_images/4347012-d1d107850870e44a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><br><br></figure>
+
+<p>我们可以通过定义一些事件来获取数据，帮助我们更好分析，所谓的“精细化运营”。</p>
+<p>比如我们可以定义一个“玩家查看礼包次数”和“玩家购买礼包次数”，根据数据我们进行思考：为什么这2个次数差距大，是礼包不吸引人？玩家不喜欢这个礼包？玩家很喜欢但是嫌贵？礼包内道具配置不合理？</p>
+<p>还可以根据“某关卡进入次数”和“某关卡死亡次数”来分析关卡的难易度，是否需要调整等。</p>
+<p>好了，今天先说到这里，我饿了去吃东西了。祝大家新年越来越好。</p>
 
       
     </div>
@@ -425,7 +481,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/threading/" rel="tag"># threading</a>
+            <a href="/tags/game-data/" rel="tag"># game data</a>
           
         </div>
       
@@ -438,8 +494,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/19/路由协议/" rel="next" title="路由协议">
-                <i class="fa fa-chevron-left"></i> 路由协议
+              <a href="/2018/01/26/threading-lock/" rel="next" title="threading-lock">
+                <i class="fa fa-chevron-left"></i> threading-lock
               </a>
             
           </div>
@@ -447,10 +503,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/31/game-data-analysis/" rel="prev" title="game data analysis">
-                game data analysis <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -502,17 +554,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -599,22 +642,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#不使用lock的情况"><span class="nav-number">1.</span> <span class="nav-text">不使用lock的情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Lock-的情况"><span class="nav-number">2.</span> <span class="nav-text">使用 Lock 的情况</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
