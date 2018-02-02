@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://reworth.site/"/>
-  <updated>2018-01-31T03:42:22.241Z</updated>
+  <updated>2018-02-02T09:23:31.267Z</updated>
   <id>http://reworth.site/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深浅拷，新旧类</title>
+    <link href="http://reworth.site/2018/02/02/%E6%B7%B1%E6%B5%85%E6%8B%B7%EF%BC%8C%E6%96%B0%E6%97%A7%E7%B1%BB/"/>
+    <id>http://reworth.site/2018/02/02/深浅拷，新旧类/</id>
+    <published>2018-02-02T09:21:33.000Z</published>
+    <updated>2018-02-02T09:23:31.267Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><p>浅拷贝仅仅复制了容器中元素的地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a=[&apos;hello&apos;,[1,2,3]]</span><br><span class="line">&gt;&gt;&gt; b=a[:]</span><br><span class="line">&gt;&gt;&gt; [id(x) for x in a]</span><br><span class="line">[55792504, 6444104]</span><br><span class="line">&gt;&gt;&gt; [id(x) for x in b]</span><br><span class="line">[55792504, 6444104]</span><br><span class="line">&gt;&gt;&gt; a[0]=&apos;world&apos;</span><br><span class="line">&gt;&gt;&gt; a[1].append(4)</span><br><span class="line">&gt;&gt;&gt; print(a)</span><br><span class="line">[&apos;world&apos;, [1, 2, 3, 4]]</span><br><span class="line">&gt;&gt;&gt; print(b)</span><br><span class="line">[&apos;hello&apos;, [1, 2, 3, 4]]</span><br></pre></td></tr></table></figure></p><p>这里可以看出，未修改前，a和b中元素的地址都是相同的，不可变的hello<br>和可变的list地址都一样，说明浅拷贝知识将容器内的元素的地址复制了一份。这可以通过修改后，b中字符串没改变，但是list元素随着a相应改变得到验证。</p><p>浅拷贝是在另一块地址中创建一个新的变量或容器，但是容器内的元素的地址均是源对象的元素的地址的拷贝。也就是说新的容器中指向了旧的元素（ 新瓶装旧酒 ）。</p><h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><p>深拷贝，完全拷贝了一个副本，容器内部元素地址都不一样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from copy import deepcopy</span><br><span class="line">&gt;&gt;&gt; a=[&apos;hello&apos;,[1,2,3]]</span><br><span class="line">&gt;&gt;&gt; b=deepcopy(a)</span><br><span class="line">&gt;&gt;&gt; [id(x) for x in a]</span><br><span class="line">[55792504, 55645000]</span><br><span class="line">&gt;&gt;&gt; [id(x) for x in b]</span><br><span class="line">[55792504, 58338824]</span><br><span class="line">&gt;&gt;&gt; a[0]=&apos;world&apos;</span><br><span class="line">&gt;&gt;&gt; a[1].append(4)</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&gt;&gt;&gt; print(a)</span><br><span class="line">[&apos;world&apos;, [1, 2, 3, 4]]</span><br><span class="line">&gt;&gt;&gt; print(b)</span><br><span class="line">[&apos;hello&apos;, [1, 2, 3]]</span><br></pre></td></tr></table></figure></p><p>这里可以看出，深拷贝后，a和b的地址以及a和b中的元素地址均不同，这是完全拷贝的一个副本，修改a后，发现b没有发生任何改变，因为b是一个完全的副本，元素地址与a均不同，a修改不影响b。</p><p>深拷贝是在另一块地址中创建一个新的变量或容器，同时容器内的元素的地址也是新开辟的，仅仅是值相同而已，是完全的副本。也就是说（ 新瓶装新酒 ）。</p><h2 id="旧式类和新式类："><a href="#旧式类和新式类：" class="headerlink" title="旧式类和新式类："></a>旧式类和新式类：</h2><p>➤新式类都从object继承，经典类不需要。</p><p>➤新式类的MRO(method resolution order 基类搜索顺序)算法采用C3算法广度优先搜索，而旧式类的MRO算法是采用深度优先搜索</p><p>➤新式类相同父类只执行一次构造函数，经典类重复执行多次。</p><p> 其中：</p><p>➤截止到python2.1，只存在旧式类。旧式类中，类名和type是无关的：如果x是一个旧式类，那么x.<strong>class</strong>定义了x的类名，但是type(x)总是返回<type 'instance'="">。这反映了所有的旧式类的实例是通过一个单一的叫做instance的内建类型来实现的，这是它和类不同的地方。</type></p><p>➤新式类是在python2.2为了统一类和实例引入的。一个新式类只能由用户自定义。如果x是一个新式类的实例，那么type(x)和x.<strong>class</strong>是一样的结果（尽管这不能得到保证，因为新式类的实例的<strong>class</strong>方法是允许被用户覆盖的）。</p><p>➤Python 2.x中默认都是经典类，只有显式继承了object才是新式类  </p><p>➤Python 3.x中默认都是新式类,经典类被移除，不必显式的继承object</p><p>Python2.x中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.  class A:  </span><br><span class="line">2.  pass  </span><br><span class="line">3.  class B:  </span><br><span class="line">4.  pass  </span><br><span class="line">5.  class C(B):  </span><br><span class="line">6.  pass  </span><br><span class="line">7.  class D(C,A):  </span><br><span class="line">8.  pass</span><br></pre></td></tr></table></figure></p><p>执行顺序为：D-&gt;C-&gt;B-&gt;A</p><p>python3:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.  class A(object):  </span><br><span class="line">2.  pass  </span><br><span class="line">3.  class B(object):  </span><br><span class="line">4.  pass  </span><br><span class="line">5.  class C(object):   </span><br><span class="line">6.  pass  </span><br><span class="line">7.  class D(A,B,C):   </span><br><span class="line">8.  pass</span><br></pre></td></tr></table></figure></p><p>执行顺序为： D-&gt;A-&gt;B-&gt;C-&gt;Object</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;浅拷贝&quot;&gt;&lt;a href=&quot;#浅拷贝&quot; class=&quot;headerlink&quot; title=&quot;浅拷贝&quot;&gt;&lt;/a&gt;浅拷贝&lt;/h2&gt;&lt;p&gt;浅拷贝仅仅复制了容器中元素的地址&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://reworth.site/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://reworth.site/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>game data basic</title>
