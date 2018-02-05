@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://reworth.site/2018/02/05/functional-programming/</loc>
-    <lastmod>2018-02-05T12:11:37.463Z</lastmod>
+    <lastmod>2018-02-05T12:19:22.408Z</lastmod>
     <data>
         <display>
         <title>functional programming</title>
@@ -15,6 +15,9 @@
          
          
            
+             
+              <breadCrumb title="python" url="http://reworth.site/categories/python/"/>
+          
         </display>
     </data>
     </url>
@@ -198,9 +201,9 @@
         <title>flask-sqlachemy</title>
         <pubTime>2018-01-05T02:59:28.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>flask</tag>
+         
+        <tag>python</tag>
          
         <tag>sqlalchemy</tag>
          
@@ -282,9 +285,9 @@
         <title>flask definitions</title>
         <pubTime>2018-01-03T11:16:42.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>flask</tag>
+         
+        <tag>python</tag>
          
          
            
