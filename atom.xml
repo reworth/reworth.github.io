@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://reworth.site/"/>
-  <updated>2018-02-02T09:23:31.267Z</updated>
+  <updated>2018-02-05T12:11:37.463Z</updated>
   <id>http://reworth.site/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>functional programming</title>
+    <link href="http://reworth.site/2018/02/05/functional-programming/"/>
+    <id>http://reworth.site/2018/02/05/functional-programming/</id>
+    <published>2018-02-05T12:11:00.000Z</published>
+    <updated>2018-02-05T12:11:37.463Z</updated>
+    
+    <content type="html"><![CDATA[<p>函数式编程的一大特性就是：可以把函数当作变量来使用，比如将函数赋值给其他变量、把函数作为参数传递给其他函数、函数的返回值也可以是一个函数等等。</p><h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><p>在函数式编程中，我们可以把将函数当作变量一样自由使用。一个函数接收另一个函数作为参数，这种函数称之为高阶函数（Higher-order-Functions）。<br>看一个简单的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def func(g,arr):</span><br><span class="line">      return [g(x) for x in arr]</span><br></pre></td></tr></table></figure></p><p>上面的代码中，func是一个高阶函数，它接收两个参数，第一个参数是函数，第二参数是数组，func的功能是将函数g逐个作用于数组arr上，并返回一个新的数组，比如，这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def double(x):</span><br><span class="line">    return 2 * x</span><br><span class="line"></span><br><span class="line">def square(x):</span><br><span class="line">    return x * x</span><br><span class="line"></span><br><span class="line">arr1 = func(double, [1, 2, 3, 4])</span><br><span class="line">arr2 = func(square, [1, 2, 3, 4])</span><br></pre></td></tr></table></figure></p><p>不难判断出，arr1 是 [2, 4, 6, 8]，arr2 是 [1, 4, 9, 16]。</p><h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>在 Python 中，我们使用 def 语句来定义函数，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def double(x):</span><br><span class="line">    return 2 * x</span><br></pre></td></tr></table></figure></p><p>除了用上面的方式定义函数，Python 还提供了一个关键字 lambda，让我们可以创建一个匿名函数，也就是没有名称的函数。它的形式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lambda 参数: 表达式</span><br></pre></td></tr></table></figure></p><p>关键字 lambda 说明它是一个匿名函数，冒号 : 前面的变量是该匿名函数的参数，冒号后面是函数的返回值，注意这里不需使用 return 关键字。<br>我们将上面的double函数改成一个匿名函数，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lambda x: 2 * x</span><br></pre></td></tr></table></figure></p><p>那怎么调用匿名函数呢？可以直接使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; (lambda x : 2 * x)(8)</span><br><span class="line">16</span><br></pre></td></tr></table></figure></p><p>由于匿名函数本质是一个函数对象，也可以将其赋值给另一个变量，再由该变量来调用函数，如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; f = lambda x : 2 * x</span><br><span class="line">&gt;&gt;&gt; f</span><br><span class="line">&lt;function &lt;lambda&gt; at 0x7f3da14ee848&gt;</span><br><span class="line">&gt;&gt;&gt; f(8)</span><br><span class="line">16</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p><p>使用场景<br>lambda 函数一般适用于创建一些临时性的，小巧的函数。比如上面的 double 函数，我们当然可以使用 def 来定义，但使用 lambda 来创建会显得很简洁，尤其是在高阶函数的使用中。</p><p>看一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def func(g, arr):</span><br><span class="line">     return [g(x) for x in arr]</span><br></pre></td></tr></table></figure></p><p>现在给一个列表[1,2,3,4],利用上面的函数，对列表中的元素加1，返回一个新的列表，可以这样用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def add_one(x):</span><br><span class="line">    return x + 1</span><br><span class="line">arr = func(add_one, [1,2,3,4])</span><br></pre></td></tr></table></figure></p><p>这样做没什么错，可是 add_one 这个函数太简单了，使用 def 定义未免有点小题大作，我们改用 lambda：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr = func(lambda x: x + 1, [1,2,3,4])</span><br></pre></td></tr></table></figure></p><h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>map函数的使用形式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map(function, sequence)</span><br></pre></td></tr></table></figure></p><p>解释：对sequence中的item依次执行function(item),并将结果组成一个List返回，也就是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[fuctiona(item1), function[item2],function[item3],...]</span><br></pre></td></tr></table></figure></p><p>看一些简单的例子。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def square(x):</span><br><span class="line">...     return x * x</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; map(square, [1, 2, 3, 4])</span><br><span class="line">[1, 4, 9, 16]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; map(lambda x: x * x, [1, 2, 3, 4])   # 使用 lambda</span><br><span class="line">[1, 4, 9, 16]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; map(str, [1, 2, 3, 4])</span><br><span class="line">[&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; map(int, [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;])</span><br><span class="line">[1, 2, 3, 4]</span><br></pre></td></tr></table></figure></p><h2 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h2><p>reduce函数的使用形式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reduce(fuction, sequence[, initial])</span><br></pre></td></tr></table></figure></p><p>解释：先将sequence的前两个item传给function,即funtion(item1,item2),函数的返回值和sequence的下一个item再传给function，即function(function(item1,item2),item3),如此迭代，直到sequence没有元素，如果有initial,则作为初始值调用。<br>也就是说：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reduce(f,[x1,x2,x3,x4]) = f(f(f(x1, x2), x3), x4)</span><br></pre></td></tr></table></figure></p><p>再看一些例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; reduce(lambda x, y: x * y, [1, 2, 3, 4])  # 相当于 ((1 * 2) * 3) * 4</span><br><span class="line">24</span><br><span class="line">&gt;&gt;&gt; reduce(lambda x, y: x * y, [1, 2, 3, 4], 5) # ((((5 * 1) * 2) * 3)) * 4</span><br><span class="line">120</span><br><span class="line">&gt;&gt;&gt; reduce(lambda x, y: x / y, [2, 3, 4], 72)  #  (((72 / 2) / 3)) / 4</span><br><span class="line">3</span><br><span class="line">&gt;&gt;&gt; reduce(lambda x, y: x + y, [1, 2, 3, 4], 5)  # ((((5 + 1) + 2) + 3)) + 4</span><br><span class="line">15</span><br><span class="line">&gt;&gt;&gt; reduce(lambda x, y: x - y, [8, 5, 1], 20)  # ((20 - 8) - 5) - 1</span><br><span class="line">6</span><br><span class="line">&gt;&gt;&gt; f = lambda a, b: a if (a &gt; b) else b   # 两两比较，取最大值</span><br><span class="line">&gt;&gt;&gt; reduce(f, [5, 8, 1, 10])</span><br><span class="line">10</span><br></pre></td></tr></table></figure></p><h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><p>filter函数用于果率元素，它的形式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filter(function, sequence)</span><br></pre></td></tr></table></figure></p><p>解释：将 function 依次作用于 sequnce 的每个 item，即 function(item)，将返回值为 True 的 item 组成一个 List/String/Tuple (取决于 sequnce 的类型，python3 统一返回迭代器) 返回。</p><p>看一些例子。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; even_num = list(filter(lambda x: x % 2 == 0, [1, 2, 3, 4, 5, 6]))</span><br><span class="line">&gt;&gt;&gt; even_num</span><br><span class="line">[2, 4, 6]</span><br><span class="line">&gt;&gt;&gt; odd_num = list(filter(lambda x: x % 2, [1, 2, 3, 4, 5, 6]))</span><br><span class="line">&gt;&gt;&gt; odd_num</span><br><span class="line">[1, 3, 5]</span><br><span class="line">&gt;&gt;&gt; filter(lambda x: x &lt; &apos;g&apos;, &apos;hijack&apos;)</span><br><span class="line">&apos;ac&apos;        # python2</span><br><span class="line">&gt;&gt;&gt; filter(lambda x: x &lt; &apos;g&apos;, &apos;hijack&apos;)</span><br><span class="line">&lt;filter object at 0x1034b4080&gt;   # python3</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;函数式编程的一大特性就是：可以把函数当作变量来使用，比如将函数赋值给其他变量、把函数作为参数传递给其他函数、函数的返回值也可以是一个函数等等。&lt;/p&gt;
+&lt;h2 id=&quot;高阶函数&quot;&gt;&lt;a href=&quot;#高阶函数&quot; class=&quot;headerlink&quot; title=&quot;高阶函数&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://reworth.site/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>深浅拷，新旧类</title>
@@ -262,9 +286,9 @@
       <category term="python" scheme="http://reworth.site/categories/python/"/>
     
     
-      <category term="flask" scheme="http://reworth.site/tags/flask/"/>
-    
       <category term="python" scheme="http://reworth.site/tags/python/"/>
+    
+      <category term="flask" scheme="http://reworth.site/tags/flask/"/>
     
       <category term="sqlalchemy" scheme="http://reworth.site/tags/sqlalchemy/"/>
     
@@ -374,9 +398,9 @@
       <category term="flask" scheme="http://reworth.site/categories/flask/"/>
     
     
-      <category term="flask" scheme="http://reworth.site/tags/flask/"/>
-    
       <category term="python" scheme="http://reworth.site/tags/python/"/>
+    
+      <category term="flask" scheme="http://reworth.site/tags/flask/"/>
     
   </entry>
   

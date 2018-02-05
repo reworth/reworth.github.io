@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://reworth.site/2018/02/05/functional-programming/</loc>
+    <lastmod>2018-02-05T12:11:37.463Z</lastmod>
+    <data>
+        <display>
+        <title>functional programming</title>
+        <pubTime>2018-02-05T12:11:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://reworth.site/2018/02/02/%E6%B7%B1%E6%B5%85%E6%8B%B7%EF%BC%8C%E6%96%B0%E6%97%A7%E7%B1%BB/</loc>
     <lastmod>2018-02-02T09:23:31.267Z</lastmod>
     <data>
@@ -181,9 +198,9 @@
         <title>flask-sqlachemy</title>
         <pubTime>2018-01-05T02:59:28.000Z</pubTime>
         
-        <tag>flask</tag>
-         
         <tag>python</tag>
+         
+        <tag>flask</tag>
          
         <tag>sqlalchemy</tag>
          
@@ -265,9 +282,9 @@
         <title>flask definitions</title>
         <pubTime>2018-01-03T11:16:42.000Z</pubTime>
         
-        <tag>flask</tag>
-         
         <tag>python</tag>
+         
+        <tag>flask</tag>
          
          
            
