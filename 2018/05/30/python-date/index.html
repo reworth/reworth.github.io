@@ -67,7 +67,7 @@
 
 
 
-  <meta name="keywords" content="flask,python," />
+  <meta name="keywords" content="python," />
 
 
 
@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="Flask’s some definitions WSGI: Web服务器网关接口，是一种Web服务使用的协议 路由: 处理URL和函数之间关系的程序称为”路由” 视图函数: 类似于index()这样的，被app.route装饰器注册为路由的函数，或者通过app.add_url_rule()添加路由映射关系的函数，被称为视图函数。   app.route(): 路由装饰器，可以带参数，参数可以指定">
-<meta name="keywords" content="flask,python">
+<meta name="description" content="1、strftime的用法strftime可以用来获得当前时间，可以将时间格式化为字符串等等，还挺方便的。但是需要注意的是获得的时间是服务器的时间，需要注意时区问题.strftime（）函数将时间格式化我们可以使用strftime（）函数将时间格式化为我们想要的格式12345In [14]: time.strftime(&amp;quot;%Y/%m/%d&amp;quot;, time.localtime())">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flask definitions">
-<meta property="og:url" content="http://reworth.site/2018/01/03/flask-definitions/index.html">
+<meta property="og:title" content="python date">
+<meta property="og:url" content="http://reworth.site/2018/05/30/python-date/index.html">
 <meta property="og:site_name" content="Reworth&#39;s Blog">
-<meta property="og:description" content="Flask’s some definitions WSGI: Web服务器网关接口，是一种Web服务使用的协议 路由: 处理URL和函数之间关系的程序称为”路由” 视图函数: 类似于index()这样的，被app.route装饰器注册为路由的函数，或者通过app.add_url_rule()添加路由映射关系的函数，被称为视图函数。   app.route(): 路由装饰器，可以带参数，参数可以指定">
+<meta property="og:description" content="1、strftime的用法strftime可以用来获得当前时间，可以将时间格式化为字符串等等，还挺方便的。但是需要注意的是获得的时间是服务器的时间，需要注意时区问题.strftime（）函数将时间格式化我们可以使用strftime（）函数将时间格式化为我们想要的格式12345In [14]: time.strftime(&amp;quot;%Y/%m/%d&amp;quot;, time.localtime())">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-03T11:45:22.865Z">
+<meta property="og:updated_time" content="2018-05-30T11:55:40.714Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flask definitions">
-<meta name="twitter:description" content="Flask’s some definitions WSGI: Web服务器网关接口，是一种Web服务使用的协议 路由: 处理URL和函数之间关系的程序称为”路由” 视图函数: 类似于index()这样的，被app.route装饰器注册为路由的函数，或者通过app.add_url_rule()添加路由映射关系的函数，被称为视图函数。   app.route(): 路由装饰器，可以带参数，参数可以指定">
+<meta name="twitter:title" content="python date">
+<meta name="twitter:description" content="1、strftime的用法strftime可以用来获得当前时间，可以将时间格式化为字符串等等，还挺方便的。但是需要注意的是获得的时间是服务器的时间，需要注意时区问题.strftime（）函数将时间格式化我们可以使用strftime（）函数将时间格式化为我们想要的格式12345In [14]: time.strftime(&amp;quot;%Y/%m/%d&amp;quot;, time.localtime())">
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://reworth.site/2018/01/03/flask-definitions/"/>
+  <link rel="canonical" href="http://reworth.site/2018/05/30/python-date/"/>
 
 
 
 
 
-  <title>flask definitions | Reworth's Blog</title>
+  <title>python date | Reworth's Blog</title>
   
 
 
@@ -298,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://reworth.site/2018/01/03/flask-definitions/">
+    <link itemprop="mainEntityOfPage" href="http://reworth.site/2018/05/30/python-date/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reworth Yan">
@@ -315,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">flask definitions</h1>
+          <h1 class="post-title" itemprop="name headline">python date</h1>
         
 
         <div class="post-meta">
@@ -327,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T19:16:42+08:00">
-                2018-01-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T19:53:30+08:00">
+                2018-05-30
               </time>
             
 
@@ -350,8 +350,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/flask/" itemprop="url" rel="index">
-                    <span itemprop="name">flask</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -387,50 +387,11 @@
       
 
       
-        <h1 id="Flask’s-some-definitions"><a href="#Flask’s-some-definitions" class="headerlink" title="Flask’s some definitions"></a>Flask’s some definitions</h1><ul>
-<li>WSGI: Web服务器网关接口，是一种Web服务使用的协议</li>
-<li>路由: 处理URL和函数之间关系的程序称为”路由”</li>
-<li>视图函数: 类似于index()这样的，被app.route装饰器注册为路由的函数，或者通过app.add_url_rule()添加路由映射关系的函数，被称为视图函数。  </li>
-<li>app.route(): 路由装饰器，可以带参数，参数可以指定数据类型：int/float/path。path类似于字符串，但不将反斜线/当做分隔符。 </li>
-</ul>
-<h1 id="Flask上下文全局变量"><a href="#Flask上下文全局变量" class="headerlink" title="Flask上下文全局变量"></a>Flask上下文全局变量</h1><ul>
-<li>current_app: 程序上下文，当前激活程序的程序实例，所有线程公用一个该实例。 </li>
-<li>g: 程序上下文，处理请求时用作临时存储的对象，每次请求都会重设这个变量</li>
-<li>request: 请求上下文，请求对象，封装了客户端发出的 HTTP 请求中的内容，不同线程之间互不干扰</li>
-<li>session: 请求上下问，用户会话，用于存储请求之间需要“记住”的值的词典。 </li>
-</ul>
-<h1 id="Flask支持的4种钩子函数"><a href="#Flask支持的4种钩子函数" class="headerlink" title="Flask支持的4种钩子函数"></a>Flask支持的4种钩子函数</h1><ul>
-<li>before_first_request: 注册一个函数，在处理第一个请求之前运行。 </li>
-<li>before_request: 注册一个函数，在每次请求之前运行。</li>
-<li>after_request: 注册一个函数，如果没有未处理的异常抛出，在每次请求之后运行。</li>
-<li>teardown_request:注册一个函数，即使有未处理的异常抛出，也在每次请求之后运行。</li>
-</ul>
-<h1 id="Jinja2模板使用"><a href="#Jinja2模板使用" class="headerlink" title="Jinja2模板使用"></a>Jinja2模板使用</h1><p>渲染模板: render_template(“user.html”, name=name)<br>控制结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if user %&#125; </span><br><span class="line">      Hello, &#123;&#123; user &#125;&#125;! </span><br><span class="line">    &#123;% else %&#125; </span><br><span class="line">      Hello, Stranger! </span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">    &lt;ul&gt; </span><br><span class="line">    &#123;% for comment in comments %&#125; </span><br><span class="line">      &lt;li&gt;&#123;&#123; comment &#125;&#125;&lt;/li&gt;  </span><br><span class="line">       &#123;% endfor %&#125; </span><br><span class="line">    &lt;/ul&gt;</span><br></pre></td></tr></table></figure></p>
-<p>宏-类似于函数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> &#123;% macro render_comment(comment) %&#125; </span><br><span class="line">   &lt;li&gt;&#123;&#123; comment &#125;&#125;&lt;/li&gt; </span><br><span class="line"> &#123;% endmacro %&#125; </span><br><span class="line"> </span><br><span class="line"> &lt;ul&gt; </span><br><span class="line"> &#123;% for comment in comments %&#125; </span><br><span class="line">   &#123;&#123; render_comment(comment) &#125;&#125; </span><br><span class="line"> &#123;% endfor %&#125; </span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure></p>
-<h1 id="Jinja2变量过滤器"><a href="#Jinja2变量过滤器" class="headerlink" title="Jinja2变量过滤器"></a>Jinja2变量过滤器</h1><blockquote>
-<p># safe: 渲染值时不转义<br># capitalize: 把值的首字母转换成大写，其他字母转换成小写<br># lower: 把值转换成小写形式<br># upper: 把值转换成大写形式<br># title: 把值中每个单词的首字母都转换成大写<br># trim: 把值的首尾空格去掉<br># striptags: 渲染之前把值中所有的 HTML 标签都删掉 </p>
-</blockquote>
-<h1 id="WTForms支持的字段"><a href="#WTForms支持的字段" class="headerlink" title="WTForms支持的字段"></a>WTForms支持的字段</h1><p><strong>注意添加app.config[‘SECRET_KEY’] = ‘hard to guess string’</strong></p>
-<ul>
-<li>StringField 文本字段 </li>
-<li>TextAreaField 多行文本字段 </li>
-<li>PasswordField 密码文本字段 </li>
-<li>HiddenField 隐藏文本字段 </li>
-<li>DateField 值为datatime.data格式的文本字段 </li>
-<li>DateTimeField 值为datatime.datatime格式的文本字段 </li>
-<li>DecimalField 值为decimal.Decimal格式的文本字段 </li>
-<li>IntegerField 值为整数的文本字段 </li>
-<li>FloatField 值为浮点数的文本字段 </li>
-<li>BooleanField 值为True或False的复选框 </li>
-<li>RadioField 一组单选框 </li>
-<li>SelectField 值唯一的下拉列表 </li>
-<li>SelectMultipleField 可选多个值得下拉列表 </li>
-<li>FileField 文件上传字段 </li>
-<li>SubmitField 表单提交按钮 </li>
-<li>FormField 把表单作为字段嵌入另一个表单 </li>
-<li>FieldList 一组指定类型的字段 </li>
-</ul>
-<h1 id="常见返回码"><a href="#常见返回码" class="headerlink" title="常见返回码"></a>常见返回码</h1><p>200 OK - [GET]：服务器成功返回用户请求的数据<br>201 CREATED - [POST/PUT/PATCH]：用户新建或修改数据成功<br>202 Accepted - [<em>]：表示一个请求已经进入后台排队（异步任务）<br>204 NO CONTENT - [DELETE]：用户删除数据成功<br>400 INVALID REQUEST - [POST/PUT/PATCH]：用户发出的请求有错误，服务器没有进行新建或修改数据的操作<br>401 Unauthorized - [</em>]：表示用户没有权限（令牌、用户名、密码错误）<br>403 Forbidden - [<em>] 表示用户得到授权（与401错误相对），但是访问是被禁止的<br>404 NOT FOUND - [</em>]：用户发出的请求针对的是不存在的记录，服务器没有进行操作<br>406 Not Acceptable - [GET]：用户请求的格式不可得<br>410 Gone -[GET]：用户请求的资源被永久删除，且不会再得到的<br>422 Unprocesable entity - [POST/PUT/PATCH] 当创建一个对象时，发生一个验证错误<br>500 INTERNAL SERVER ERROR - [*]：服务器发生错误，用户将无法判断发出的请求是否成功 </p>
+        <h1 id="1、strftime的用法"><a href="#1、strftime的用法" class="headerlink" title="1、strftime的用法"></a>1、strftime的用法</h1><p>strftime可以用来获得当前时间，可以将时间格式化为字符串等等，还挺方便的。但是需要注意的是获得的时间是服务器的时间，需要注意时区问题.<br>strftime（）函数将时间格式化<br>我们可以使用strftime（）函数将时间格式化为我们想要的格式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In [14]: time.strftime(&quot;%Y/%m/%d&quot;, time.localtime())</span><br><span class="line">Out[14]: &apos;2018/05/30&apos;</span><br><span class="line"></span><br><span class="line">In [15]: time.localtime()</span><br><span class="line">Out[15]: time.struct_time(tm_year=2018, tm_mon=5, tm_mday=30, tm_hour=7, tm_min=8, tm_sec=6, tm_wday=2, tm_yday=150, tm_isdst=0)</span><br></pre></td></tr></table></figure></p>
+<h1 id="2-strptime的用法"><a href="#2-strptime的用法" class="headerlink" title="2.strptime的用法"></a>2.strptime的用法</h1><p>Python time strptime() 函数根据指定的格式把一个时间字符串解析为时间元组。<br>python中时间日期格式化符号：</p>
+<p>%y 两位数的年份表示（00-99）<br>%Y 四位数的年份表示（000-9999）<br>%m 月份（01-12）<br>%d 月内中的一天（0-31）<br>%H 24小时制小时数（0-23）<br>%I 12小时制小时数（01-12）<br>%M 分钟数（00=59）<br>%S 秒（00-59）<br>%a 本地简化星期名称<br>%A 本地完整星期名称<br>%b 本地简化的月份名称<br>%B 本地完整的月份名称<br>%c 本地相应的日期表示和时间表示<br>%j 年内的一天（001-366）<br>%p 本地A.M.或P.M.的等价符<br>%U 一年中的星期数（00-53）星期天为星期的开始<br>%w 星期（0-6），星期天为星期的开始<br>%W 一年中的星期数（00-53）星期一为星期的开始<br>%x 本地相应的日期表示<br>%X 本地相应的时间表示<br>%Z 当前时区的名称<br>%% %号本身<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [11]: time.strptime(&quot;2018/5/8&quot;,&quot;%Y/%m/%d&quot;)</span><br><span class="line">Out[11]: time.struct_time(tm_year=2018, tm_mon=5, tm_mday=8, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=1, tm_yday=128, tm_isdst=-1)</span><br></pre></td></tr></table></figure></p>
+<h1 id="3-mktime的用法"><a href="#3-mktime的用法" class="headerlink" title="3.mktime的用法"></a>3.mktime的用法</h1><p>Python time mktime() 函数执行与gmtime(), localtime()相反的操作，它接收struct_time对象作为参数，返回用秒数来表示时间的浮点数。<br>如果输入的值不是一个合法的时间，将触发 OverflowError 或 ValueError。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [12]: time.mktime(time.strptime(&quot;2018/5/8&quot;, &quot;%Y/%m/%d&quot;))</span><br><span class="line">Out[12]: 1525737600.0</span><br></pre></td></tr></table></figure></p>
+<p>以上是先使用strptime将时间转换为时间元组，再将这时间元组作为参数去调用mktime。</p>
 
       
     </div>
@@ -448,8 +409,6 @@
       
         <div class="post-tags">
           
-            <a href="/tags/flask/" rel="tag"># flask</a>
-          
             <a href="/tags/python/" rel="tag"># python</a>
           
         </div>
@@ -463,8 +422,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/01/sed-grep/" rel="next" title="sed-grep">
-                <i class="fa fa-chevron-left"></i> sed-grep
+              <a href="/2018/05/02/Loops-for-and-while-User-interfaces/" rel="next" title="Loops for and while && User interfaces">
+                <i class="fa fa-chevron-left"></i> Loops for and while && User interfaces
               </a>
             
           </div>
@@ -472,10 +431,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/03/hexo-cmd/" rel="prev" title="hexo cmd">
-                hexo cmd <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -648,7 +603,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Flask’s-some-definitions"><span class="nav-number">1.</span> <span class="nav-text">Flask’s some definitions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Flask上下文全局变量"><span class="nav-number">2.</span> <span class="nav-text">Flask上下文全局变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Flask支持的4种钩子函数"><span class="nav-number">3.</span> <span class="nav-text">Flask支持的4种钩子函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jinja2模板使用"><span class="nav-number">4.</span> <span class="nav-text">Jinja2模板使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jinja2变量过滤器"><span class="nav-number">5.</span> <span class="nav-text">Jinja2变量过滤器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WTForms支持的字段"><span class="nav-number">6.</span> <span class="nav-text">WTForms支持的字段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见返回码"><span class="nav-number">7.</span> <span class="nav-text">常见返回码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1、strftime的用法"><span class="nav-number">1.</span> <span class="nav-text">1、strftime的用法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-strptime的用法"><span class="nav-number">2.</span> <span class="nav-text">2.strptime的用法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-mktime的用法"><span class="nav-number">3.</span> <span class="nav-text">3.mktime的用法</span></a></li></ol></div>
             
 
           </div>
